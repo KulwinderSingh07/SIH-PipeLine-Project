@@ -8,15 +8,6 @@ const DashBoardPage = () => {
     [51.5, -0.1],
     [51.5, -0.12],
   ]);
-  const fetPolylinedata = async (locData) => {
-    console.log(locData);
-    const newLoc = [locData.junctionLat, locData.junctionLong];
-    console.log("Chal reha");
-    let temparr = polylineData;
-    temparr.push(newLoc);
-    setPolylineData(temparr);
-    console.log(polylineData.length);
-  };
   return (
     <div className="monitoringDashBoardWrapper">
       <div className="dashBoardHeader">

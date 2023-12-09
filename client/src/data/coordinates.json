@@ -1,0 +1,120 @@
+{
+  "locations": [
+    {
+      "location": "hostel_O",
+      "coordinates": [30.351867523806593, 76.3623328149612]
+    },
+    {
+      "location": "hostel_D",
+      "coordinates": [30.350973911948895, 76.36021393967916]
+    },
+    {
+      "location": "hostel_C",
+      "coordinates": [30.35092350283171, 76.3612547906949]
+    },
+    {
+      "location": "hostel_B",
+      "coordinates": [30.35118929606617, 76.36324090436781]
+    },
+    {
+      "location": "hostel_A",
+      "coordinates": [30.35138176657837, 76.36453665767314]
+    },
+    {
+      "location": "hostel_J",
+      "coordinates": [30.352886865382704, 76.36330131144987]
+    },
+    {
+      "location": "hostel_H",
+      "coordinates": [30.353083051075174, 76.36496222009096]
+    },
+    {
+      "location": "hostel_Q",
+      "coordinates": [30.35197677651367, 76.36765882847124]
+    },
+    {
+      "location": "hostel_K",
+      "coordinates": [30.35730614117915, 76.36352323621907]
+    },
+    {
+      "location": "hostel_I",
+      "coordinates": [30.35504277648549, 76.36767812035015]
+    },
+    {
+      "location": "hostel_M",
+      "coordinates": [30.353134178656916, 76.36066472258837]
+    },
+    {
+      "location": "hostel_PG",
+      "coordinates": [30.35197989124751, 76.3666492398353]
+    },
+    {
+      "location": "library",
+      "coordinates": [30.3543545823082, 76.36958924718371]
+    },
+    {
+      "location": "pool",
+      "coordinates": [30.354402676757047, 76.36615459411051]
+    },
+    {
+      "location": "cos_complex",
+      "coordinates": [30.35435229080191, 76.36239996180112]
+    },
+    {
+      "location": "synthetic_running_track",
+      "coordinates": [30.35448455038261, 76.36168586050812]
+    },
+    {
+      "location": "reservoir_1",
+      "coordinates": [30.353353480462903, 76.36541801589863]
+    },
+    {
+      "location": "reservoir_2",
+      "coordinates": [30.353259209909133, 76.37051576383207]
+    },
+    {
+      "location": "admin_block",
+      "coordinates": [30.35331165781154, 76.37117673725497]
+    },
+    {
+      "location": "D_block",
+      "coordinates": [30.35386891518143, 76.37088043884597]
+    },
+    {
+      "location": "F_block",
+      "coordinates": [30.354196712167006, 76.37217959338412]
+    },
+    {
+      "location": "E_block",
+      "coordinates": [30.35348211335929, 76.37226316473024]
+    },
+    {
+      "location": "G_block",
+      "coordinates": [30.353576978097472, 76.36952646563789]
+    },
+    {
+      "location": "junction_1",
+      "coordinates": [30.35181200314026, 76.36128692884307]
+    },
+    {
+      "location": "junction_2",
+      "coordinates": [30.35384860743729, 76.36246728687428]
+    },
+    {
+      "location": "junction_3",
+      "coordinates": [30.352374433335836, 76.36521068935289]
+    },
+    {
+      "location": "junction_4",
+      "coordinates": [30.354355854397433, 76.36493820664604]
+    },
+    {
+      "location": "junction_5",
+      "coordinates": [30.354126421400878, 76.36997429683603]
+    },
+    {
+      "location": "junction_6",
+      "coordinates": [30.354396342478843, 76.37167124029875]
+    }
+  ]
+}

@@ -13,7 +13,9 @@
 .dashBoardHeader{
   height: 50%;
   width: 100%;
+  display: flex;
 }
+
 .mapComponetWrapper {
   height: 50%;
   width: 100%;
@@ -30,4 +32,8 @@
 #map {
   height: 700px;
   width: 700px;
+}
+
+.locationDropSelectorWrapper{
+  overflow: auto;
 }

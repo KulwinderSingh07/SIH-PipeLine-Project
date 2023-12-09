@@ -4,10 +4,14 @@ import MapComponent from "./map";
 import Map from "./newmap";
 
 const DashBoardPage = () => {
-  const [polylineData, setPolylineData] = useState([
-    [51.5, -0.1],
-    [51.5, -0.12],
-  ]);
+  //PolyLine Data Reference Below :
+  // const [polylineData, setPolylineData] = useState([
+  //   [51.5, -0.1],
+  //   [51.5, -0.12],
+  // ]);
+
+  const [polylineData,setPolylineData] = useState();
+
   return (
     <div className="monitoringDashBoardWrapper">
       <div className="dashBoardHeader">

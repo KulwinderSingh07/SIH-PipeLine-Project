@@ -11,32 +11,45 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { useEffect, useState } from "react";
+import { Typography } from "@mui/material";
 import axios from "axios";
 import REQUEST_URL from "../utils/expot";
+//Importing local json-data :
+import PipesData from '../data/network_1_pipes.json';
+import Locations from '../data/network_1_locations.json'
 
 
 const LocationDropSelector = ({ setPolylineData }) => {
   const [open, setOpen] = useState("");
   const [locationsArr, setLocationsArr] = useState([]);
+  const [pipesData,setPipesData] = useState([]);
   const getLocationData = async () => {
-    const locationData = await axios.get(`${REQUEST_URL}`);
-    setLocationsArr(locationData.data);
-    console.log(locationData.data);
+    // const locationData = await axios.get(`${REQUEST_URL}`);
+
+    //Setting the initial Locations with Co-Ordinates Data from local json
+    console.log('Locations Data is :',Locations.locations);
+    setLocationsArr(Locations.locations);
+
+    //Setting the initial Pipes Data from local json
+    console.log('Pipes Data is:',PipesData.pipe_data);
+    setPipesData(PipesData.pipe_data);
+
+    // setLocationsArr(locationData.data);
+    // console.log(locationData.data);
   };
   const setDisplayLat = (locData) => {
     console.log(locData)
-    const newLoc = [[locData.inflowLat, locData.inflowLong],[locData.outflowLat,locData.outflowLong]];
-    console.log("Chal reha");
-    setPolylineData(newLoc);
-    // console.log(loc)
+    // const newLoc = [[locData.inflowLat, locData.inflowLong],[locData.outflowLat,locData.outflowLong]];
+    console.log("Adding new pipe-junction data",locData);
+    setPolylineData(locData);
   };
 
   const handleDropDown = (locDetails) => {
     // console.log(locDetails)
-    if (open == locDetails.name) {
+    if (open == locDetails.location) {
       setOpen("");
     } else {
-      setOpen(locDetails.name);
+      setOpen(locDetails.location);
     }
   };
 
@@ -64,7 +77,7 @@ const LocationDropSelector = ({ setPolylineData }) => {
             return (
               <div>
                 <ListItemButton
-                  onClick={(e) => {
+                  onClick={() => {
                     handleDropDown(locDetails);
                   }}
                 >
@@ -72,15 +85,15 @@ const LocationDropSelector = ({ setPolylineData }) => {
                     <LocationOnIcon />
                   </ListItemIcon>
                   <ListItemText primary={locDetails.name} />
-                  {open == locDetails.name ? <ExpandLess /> : <ExpandMore />}
+                  {open == locDetails.location ? <ExpandLess /> : <ExpandMore />}
                 </ListItemButton>
 
                 <Collapse
-                  in={open == locDetails.name ? true : false}
+                  in={open == locDetails.location ? true : false}
                   timeout="auto"
                   unmountOnExit
                 >
-                  <FormGroup sx={{ pl: 7 }}>
+                  {/* <FormGroup sx={{ pl: 7 }}>
                     {locDetails.pipes.map((loc) => {
                       return (
                         <FormControlLabel
@@ -100,6 +113,38 @@ const LocationDropSelector = ({ setPolylineData }) => {
                           }
                         />
                       );
+                    })}
+                  </FormGroup> */}
+
+                  <FormGroup sx={{pl:7}}>
+                    {/* {locDetails.location} */}
+
+                    {pipesData.map((item)=>{
+                      if(item.start_node_name == locDetails.location || item.end_node_name == locDetails.location){
+                        return (
+                          <FormControlLabel
+                            control={
+                              <Checkbox
+                                // checked={()=>{reviewCheckedState(loc)}}
+                                onClick={() => {
+                                  setDisplayLat(item);
+                                }}
+                              />
+                            }
+                            label={
+                              <div>
+                                <Typography variant="body1">
+                                  Start-Node: {item.start_node_name}
+                                </Typography>
+                                <Typography variant="body1">
+                                  End-Node: {item.end_node_name}
+                                </Typography>
+                              </div>
+                            }
+                          />
+                        )
+                      }
+                      
                     })}
                   </FormGroup>
                 </Collapse>

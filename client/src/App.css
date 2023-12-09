@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.monitoringDashBoardWrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100%;
+}
+.dashBoardHeader{
+  height: 50%;
+  width: 100%;
+}
+.mapComponetWrapper {
+  height: 50%;
+  width: 100%;
+}
+.leaflet-container{
+  height:100%;
+  width: 100%;
+}
+
+.scroller{
+  height: 100%;
+}
+
+#map {
+  height: 700px;
+  width: 700px;
+}

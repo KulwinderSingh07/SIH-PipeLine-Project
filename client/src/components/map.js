@@ -51,7 +51,9 @@ const MapComponent = ({ pipeJuctionArr }) => {
                     <div>
                     <h2>StartPoint : {loc.startPointName}</h2>
                     <h2>EndPoint : {loc.endPointName}</h2>
-                    <p>Additional information can go here.</p>
+                    <p>Pipeline Diameter : {loc.currentPipeline[0].diameter}</p>
+                    <p>Pipeline Length : {loc.currentPipeline[0].length}</p>
+                    <p>Pipeline Loss : {loc.currentPipeline[0].minor_loss}</p>
                     </div>
                   </Popup>
                   

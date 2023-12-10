@@ -12,11 +12,39 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { useEffect, useState } from "react";
 import { Typography } from "@mui/material";
-import axios from "axios";
-import REQUEST_URL from "../utils/expot";
 //Importing local json-data :
-import PipesData from '../data/network_1_pipes.json';
 import Locations from '../data/network_1_locations.json'
+
+const tmpMap = new Map();
+tmpMap['hostel_O'] = 'Hostel O';
+tmpMap['hostel_D'] = 'Hostel D';
+tmpMap['hostel_C'] = 'Hostel C';
+tmpMap['hostel_B'] = 'Hostel B';
+tmpMap['hostel_A'] = 'Hostel A';
+tmpMap['hostel_J'] = 'Hostel J';
+tmpMap['hostel_H'] = 'Hostel H';
+tmpMap['hostel_Q'] = 'Hostel Q';
+tmpMap['hostel_K'] = 'Hostel K';
+tmpMap['hostel_I'] = 'Hostel I';
+tmpMap['hostel_M'] = 'Hostel M';
+tmpMap['hostel_PG'] = 'Hostel PG';
+tmpMap['library'] = 'Library';
+tmpMap['pool'] = 'Pool';
+tmpMap['cos_complex'] = 'COS Complex';
+tmpMap['synthetic_running_track'] = 'Synthetic Running Track';
+tmpMap['reservoir_1'] = 'Reservior 1';
+tmpMap['reservoir_2'] = 'Reservior 2';
+tmpMap['admin_block'] = 'Admin Block';
+tmpMap['D_block'] = 'Block D';
+tmpMap['F_block'] = 'Block F';
+tmpMap['E_block'] = 'Block E';
+tmpMap['G_block'] = 'Block G';
+tmpMap['junction_1'] = 'Junction 1';
+tmpMap['junction_2'] = 'Junction 2';
+tmpMap['junction_3'] = 'Junction 3';
+tmpMap['junction_4'] = 'Junction 4';
+tmpMap['junction_5'] = 'Junction 5';
+tmpMap['junction_6'] = 'Junction 6';
 
 
 const LocationDropSelector = ({ fetchMapData }) => {
@@ -85,7 +113,6 @@ const LocationDropSelector = ({ fetchMapData }) => {
   }, []);
   return (
     <div className="locationDropSelectorWrapper">
-      {/* <ScrollToBottom className="scroller"> */}
       {locationsArr.length != 0 && (
         <List
           sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
@@ -117,31 +144,8 @@ const LocationDropSelector = ({ fetchMapData }) => {
                   timeout="auto"
                   unmountOnExit
                 >
-                  {/* <FormGroup sx={{ pl: 7 }}>
-                    {locDetails.pipes.map((loc) => {
-                      return (
-                        <FormControlLabel
-                          control={
-                            <Checkbox
-                              // checked={()=>{reviewCheckedState(loc)}}
-                              onClick={() => {
-                                setDisplayLat(loc);
-                              }}
-                            />
-                          }
-                          label={
-                            "Lat:" +
-                            loc.inflowLat +
-                            " Long:" +
-                            loc.inflowLong
-                          }
-                        />
-                      );
-                    })}
-                  </FormGroup> */}
 
                   <FormGroup sx={{pl:7}}>
-                    {/* {locDetails.location} */}
 
                     {pipesData.map((item)=>{
                       if(item.start_node_name == locDetails.location || item.end_node_name == locDetails.location){
@@ -158,10 +162,10 @@ const LocationDropSelector = ({ fetchMapData }) => {
                             label={
                               <div>
                                 <Typography variant="body1">
-                                  Start-Node: {item.start_node_name}
+                                  Start-Node: {tmpMap[item.start_node_name]}
                                 </Typography>
                                 <Typography variant="body1">
-                                  End-Node: {item.end_node_name}
+                                  End-Node: {tmpMap[item.end_node_name]}
                                 </Typography>
                               </div>
                             }

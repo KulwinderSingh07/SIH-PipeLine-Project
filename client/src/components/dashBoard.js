@@ -1,23 +1,33 @@
 import { useEffect, useState } from "react";
 import LocationDropSelector from "./locationDrop";
 import MapComponent from "./map";
-import Map from "./newmap";
+// import Map from "./newmap";
+import axios from 'axios';
+
 
 const DashBoardPage = () => {
-  //PolyLine Data Reference Below :
-  // const [polylineData, setPolylineData] = useState([
-  //   [51.5, -0.1],
-  //   [51.5, -0.12],
-  // ]);
+  const [pipeJuctionArr, setpipeJuctionArr] = useState([])
 
-  const [polylineData,setPolylineData] = useState();
+  const fetchMapData = async()=>{
+    //fetching all the selected lanes from Backend
+    const data = await axios.get('http://localhost:4000/selected/getSelectedPipes');
+    console.log(data.data.allSelected);
+    const finalResult = data.data.allSelected;
+    
+    setpipeJuctionArr(finalResult);
+    console.log(pipeJuctionArr)
+  }
+
+  useEffect(()=>{
+    fetchMapData();
+  },[])
 
   return (
     <div className="monitoringDashBoardWrapper">
       <div className="dashBoardHeader">
-        <LocationDropSelector setPolylineData={setPolylineData} />
+        <LocationDropSelector fetchMapData={fetchMapData} />
       </div>
-      <MapComponent polylineData={polylineData} />
+      <MapComponent pipeJuctionArr={pipeJuctionArr} />
     </div>
   );
 };

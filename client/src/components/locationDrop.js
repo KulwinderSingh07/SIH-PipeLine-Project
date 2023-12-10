@@ -19,29 +19,56 @@ import PipesData from '../data/network_1_pipes.json';
 import Locations from '../data/network_1_locations.json'
 
 
-const LocationDropSelector = ({ setPolylineData }) => {
+const LocationDropSelector = ({ fetchMapData }) => {
   const [open, setOpen] = useState("");
   const [locationsArr, setLocationsArr] = useState([]);
   const [pipesData,setPipesData] = useState([]);
-  const getLocationData = async () => {
-    // const locationData = await axios.get(`${REQUEST_URL}`);
 
+  const getLocationData = async () => {
     //Setting the initial Locations with Co-Ordinates Data from local json
     console.log('Locations Data is :',Locations.locations);
     setLocationsArr(Locations.locations);
 
-    //Setting the initial Pipes Data from local json
-    console.log('Pipes Data is:',PipesData.pipe_data);
-    setPipesData(PipesData.pipe_data);
+    //Setting the initial Pipes Data from DB
+    var headers = new Headers();
+     headers.append('Content-Type','application/json');
+     headers.append('Accept','application/json');
 
-    // setLocationsArr(locationData.data);
-    // console.log(locationData.data);
+     const data = await fetch('http://localhost:4000/pipeline/getCurrentPipelines',{
+      method:'GET',
+      redirect:'follow',
+      credentials:'include',
+      headers:headers
+     })
+
+     const res = await data.json();
+    setPipesData(res.allPipelines);
   };
-  const setDisplayLat = (locData) => {
+  
+  const setDisplayLat = async(locData) => {
     console.log(locData)
-    // const newLoc = [[locData.inflowLat, locData.inflowLong],[locData.outflowLat,locData.outflowLong]];
     console.log("Adding new pipe-junction data",locData);
-    setPolylineData(locData);
+
+    //Adding this pipeline to selected ones in db
+     var headers = new Headers();
+     headers.append('Content-Type','application/json');
+     headers.append('Accept','application/json');
+
+     const data = await fetch('http://localhost:4000/pipeline/selectPipeline',{
+      method:'POST',
+      redirect:'follow',
+      credentials:'include',
+      headers:headers,
+      body:JSON.stringify({pipeLineObject:locData})
+     })
+
+     const res = await data.json();
+     console.log('Data from backend is :',res);
+
+     //Then refetch it
+     getLocationData();
+     //refetch Map Data
+     fetchMapData();
   };
 
   const handleDropDown = (locDetails) => {
@@ -53,9 +80,6 @@ const LocationDropSelector = ({ setPolylineData }) => {
     }
   };
 
-  const reviewCheckedState = (loc) => {
-    return false;
-  };
   useEffect(() => {
     getLocationData();
   }, []);
@@ -125,7 +149,7 @@ const LocationDropSelector = ({ setPolylineData }) => {
                           <FormControlLabel
                             control={
                               <Checkbox
-                                // checked={()=>{reviewCheckedState(loc)}}
+                                checked={item.selected == false ? false : true}
                                 onClick={() => {
                                   setDisplayLat(item);
                                 }}

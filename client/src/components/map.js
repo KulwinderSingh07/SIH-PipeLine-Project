@@ -10,54 +10,18 @@ import {
   Tooltip,
 } from "react-leaflet";
 
-//Importing local-json data
-import Locations from '../data/network_1_locations.json'
-
-const MapComponent = ({ polylineData }) => {
-    const [pipeJuctionArr, setpipeJuctionArr] = useState([])
-    const [locationsCoords,setLocationsCoords] = useState(Locations.locations);
-    const [locationsMap,setLocationsMap] = useState();
-    const limeOptions = { color: "red" };
+const MapComponent = ({ pipeJuctionArr }) => {
+    const limeOptions = { color: "blue" };
 
     useEffect(()=>{
-      //Initializing the Location Co-ordinates from the local json file
-      setLocationsCoords(Locations.locations);
-      console.log('Setting initial location coordinates :',locationsCoords);
-      //making a map for quick retreival
-      const tmpMap = new Map();
-      for(let i=0;i<locationsCoords.length;i++){
-        tmpMap[locationsCoords[i].location] = locationsCoords[i];
-      }
-      //initializing locations map from tmpMap
-      setLocationsMap(tmpMap);
-    },[])
-
-    useMemo(()=>{
-      console.log('New polyline clicked is :',polylineData);
-      if(polylineData==undefined) return;
-      //Fetching the respective Lat And Long Data of both start and end points
-      const startCoordinates = locationsMap[polylineData.start_node_name].coordinates;
-      console.log(startCoordinates);
-      const endCoordinates = locationsMap[polylineData.end_node_name].coordinates;
-      console.log(endCoordinates);
-
-      //Format of Pipeline Data == [Polyline Data,[startCoordinates,endCoordinates]]
-      const startPointName = locationsMap[polylineData.start_node_name].name;
-      const endPointName = locationsMap[polylineData.end_node_name].name;
-
-      const newPipeData = [polylineData,[startCoordinates,endCoordinates],{startPointName,endPointName}];
-      let temparr = pipeJuctionArr;
-      temparr.push(newPipeData);
-      setpipeJuctionArr(temparr)
-      console.log(pipeJuctionArr)
-
-    },[polylineData])
+      console.log(pipeJuctionArr);
+    },[pipeJuctionArr])
 
   return (
     <div className="mapComponetWrapper">
         <MapContainer
           center={[30.3564, 76.3647]}
-          zoom={13}
+          zoom={15}
           scrollWheelZoom={false}
         >
           <TileLayer    
@@ -69,9 +33,10 @@ const MapComponent = ({ polylineData }) => {
               return (  
                 <Polyline
                   pathOptions={limeOptions}
-                  positions={[loc[1]]}
-                  weight={10}
+                  positions={[loc.startCoordinates,loc.endCoordinates]}
+                  weight={5}
                   smoothFactor={10}
+                  key = {`${loc.startPointName} + ${loc.endPointName}`}
                 >
                   <Tooltip
                     direction="bottom"
@@ -84,8 +49,8 @@ const MapComponent = ({ polylineData }) => {
 
                   <Popup>
                     <div>
-                    <h2>StartPoint : {loc[2].startPointName}</h2>
-                    <h2>EndPoint : {loc[2].endPointName}</h2>
+                    <h2>StartPoint : {loc.startPointName}</h2>
+                    <h2>EndPoint : {loc.endPointName}</h2>
                     <p>Additional information can go here.</p>
                     </div>
                   </Popup>

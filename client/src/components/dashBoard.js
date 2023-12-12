@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import LocationDropSelector from "./locationDrop";
 import MapComponent from "./map";
-// import Map from "./newmap";
 import axios from 'axios';
 
 

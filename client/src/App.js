@@ -1,20 +1,14 @@
 import './App.css';
 import DashBoardPage from './components/dashBoard';
-import MapComponent from './components/map';
-import {BrowserRouter,Routes,Route} from "react-router-dom"
-import Map from './components/newmap';
+import {Routes,Route} from "react-router-dom"
 
 function App() {
   return (
-    // <BrowserRouter>
     <div className="App">
       <Routes>
-      <Route exact path="/" element={<DashBoardPage />} />
-      <Route exact path="/tempmap" element={<Map />} />
+      <Route exact path="/mapComponent" element={<DashBoardPage />} />
       </Routes>
-    {/* <MapComponent/> */}
     </div>
-    // </BrowserRouter>
   );
 }
 

@@ -1,8 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../CSS/HomePageComponent.css'
 import DataCard from './DataCard'
+import MapComponent from './map'
+import  axios  from 'axios'
+import LocationDropSelector from './locationDrop'
 
 const HomePageComponent = () => {
+    const [pipeJuctionArr, setpipeJuctionArr] = useState([])
+
+    const fetchMapData = async()=>{
+      //fetching all the selected lanes from Backend
+      const data = await axios.get('http://localhost:4000/selected/getSelectedPipes');
+      console.log(data.data.allSelected);
+      const finalResult = data.data.allSelected;
+      
+      setpipeJuctionArr(finalResult);
+      console.log(pipeJuctionArr)
+    }
+  
+    useEffect(()=>{
+      fetchMapData();
+    },[])
   return (
     <div className='mainHomePageCompDiv'>
         <div className='homePageDivTop'>
@@ -19,10 +37,16 @@ const HomePageComponent = () => {
         </div>
         <div className='homePageDivBottom'>
             <div className='homePageDivBottomLeftUnit'>
-                <h1>Left Bottom</h1>
+            <div className='homePageDivBottomLeftUpperUnit'>
+                <h1>Graph</h1>
+            </div>
+            <div className='homePageDivBottomLeftLowerUnit'>
+            <LocationDropSelector fetchMapData={fetchMapData} />
+            </div>
             </div>
             <div className='homePageDivBottomRightUnit'>
-                <h1>Right Bottom</h1>
+                <h3 className='mapHeading'>Area Overview</h3>
+                <MapComponent pipeJuctionArr={pipeJuctionArr} />
             </div>
         </div>
     </div>

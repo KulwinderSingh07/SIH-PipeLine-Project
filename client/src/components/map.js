@@ -11,7 +11,16 @@ import {
 } from "react-leaflet";
 
 const MapComponent = ({ pipeJuctionArr }) => {
+    const [pipeMarkerSelector, setPipeMarkerSelector] = useState("")
     const limeOptions = { color: "blue" };
+
+    const changePipeMarkerSelector=(pipeIdentifier)=>{
+      if(pipeMarkerSelector==pipeIdentifier){
+        setPipeMarkerSelector("")
+      }else{
+        setPipeMarkerSelector(pipeIdentifier)
+      }
+    }
 
     useEffect(()=>{
       console.log(pipeJuctionArr);
@@ -37,6 +46,8 @@ const MapComponent = ({ pipeJuctionArr }) => {
                   weight={5}
                   smoothFactor={10}
                   key = {`${loc.startPointName} + ${loc.endPointName}`}
+                  eventHandlers={{dblclick:()=> {changePipeMarkerSelector(`${loc.startPointName}+${loc.endPointName}`)},
+                }} 
                 >
                   <Tooltip
                     direction="bottom"
@@ -55,6 +66,24 @@ const MapComponent = ({ pipeJuctionArr }) => {
                     <p>Pipeline Length : {loc.currentPipeline[0].length}</p>
                     <p>Pipeline Loss : {loc.currentPipeline[0].minor_loss}</p>
                     </div>
+                    {pipeMarkerSelector==`${loc.startPointName}+${loc.endPointName}` ?
+                      <>
+                        <Marker position={loc.startCoordinates}>
+                          <Popup>
+                            <div>
+                            <h2>StartPoint : {loc.startPointName}</h2>
+                            </div>
+                          </Popup>
+                        </Marker>
+                        <Marker position={loc.endCoordinates}>
+                          <Popup>
+                          <div>
+                            <h2>EndPoint : {loc.endPointName}</h2>
+                            </div>
+                          </Popup>
+                        </Marker>
+                      </>
+                      :<></>}
                   </Popup>
                   
                 </Polyline>

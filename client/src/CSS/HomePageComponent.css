@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    /* height: 88vh; */
+    /* height: 88v h; */
 }
 
 .homePageDivTop{
@@ -13,9 +13,9 @@
 }
 
 .homePageDivBottom{
-    /* height: 60%; */
+    height: 60%;
     display: flex;
-    justify-content: center;
+    justify-content:space-between;
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
@@ -36,14 +36,13 @@
 
 .homePageDivBottomLeftUnit{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    border-style: solid;
-    padding: 10px;
-    margin: 10px;
+    width: 48%;
 }
 
-.homePageDivBottomRightUnit{
+.homePageDivBottomLeftUpperUnit{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,3 +50,51 @@
     padding: 10px;
     margin: 10px;
 }
+.homePageDivBottomLeftLowerUnit{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border-style: solid;
+    padding: 10px;
+    margin: 10px;
+    /* max-height: 50%;  */
+    max-width:fit-content;
+    width: 100%;
+    overflow: auto;
+    border-radius: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border: none;
+}
+
+.homePageDivBottomRightUnit{
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-start;
+    border-style: solid;
+    padding: 10px;
+    margin: 10px;
+    height: 100%;
+    width: 50%;
+    border-radius: 23px;
+    padding: 1rem;
+    background-color: white;
+    border: none;
+}
+
+.homePageDivBottomRightUnit .mapHeading{
+    margin-bottom: 0.8rem;
+}
+
+.locationDropSelectorWrapper{
+    max-height:250px;
+    width: 35vw;
+    overflow: auto;
+  }
+  
+  .locationListContianer{
+    width: 100%;
+    max-width: none;
+  }

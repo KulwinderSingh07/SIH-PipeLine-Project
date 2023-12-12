@@ -17,7 +17,7 @@
 }
 
 .mapComponetWrapper {
-  height: 50%;
+  height: 50vh;
   width: 100%;
 }
 .leaflet-container{
@@ -29,11 +29,4 @@
   height: 100%;
 }
 
-#map {
-  height: 700px;
-  width: 700px;
-}
 
-.locationDropSelectorWrapper{
-  overflow: auto;
-}

@@ -115,7 +115,7 @@ const LocationDropSelector = ({ fetchMapData }) => {
     <div className="locationDropSelectorWrapper">
       {locationsArr.length != 0 && (
         <List
-          sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
+          sx={{ width: "100%", bgcolor: "background.paper" }}
           component="nav"
           aria-labelledby="nested-list-subheader"
           subheader={
@@ -123,7 +123,7 @@ const LocationDropSelector = ({ fetchMapData }) => {
               List of Locations
             </ListSubheader>
           }
-        >
+        className="locationListContianer">
           {locationsArr.map((locDetails) => {
             return (
               <div>

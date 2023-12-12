@@ -1,3 +1,53 @@
 .mainHomePageCompDiv{
     border-style: solid;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* height: 88vh; */
+}
+
+.homePageDivTop{
+    display: flex;
+    /* height: 40%; */
+    flex-direction: column;
+}
+
+.homePageDivBottom{
+    /* height: 60%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.homePageDivTopSubUnitOne{
+    border-style: solid;
+}
+
+.homePageDivTopSubUnitTwo{
+    padding: 15px;
+    border-style: solid;
+    display: flex;
+    justify-content:space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.homePageDivBottomLeftUnit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    padding: 10px;
+    margin: 10px;
+}
+
+.homePageDivBottomRightUnit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    padding: 10px;
+    margin: 10px;
 }

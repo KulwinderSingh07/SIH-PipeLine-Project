@@ -194,7 +194,7 @@ function ResponsiveDrawer(props) {
 
       <Box
         component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+        sx={{minHeight:'100vh',bgcolor:'#eaf2fb', flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar /> {/*This is a dummy toolbar just for gapping */}
         

@@ -30,6 +30,7 @@ import '../CSS/HomePage.css'
 //Importing Assets
 import PersonImage from '../assets/randperson.png';
 import HomePageComponent from '../components/HomePageComponent';
+import AreaDashBoardPage from '../components/areaDashBoard';
 
 const drawerWidth = 300;
 
@@ -121,8 +122,8 @@ function ResponsiveDrawer(props) {
     switch(param) {
         case 'Dashboard':
             return <HomePageComponent/>
-        case 'Patients':
-            // return <Patients/>
+        case 'Manage Areas':
+            return <AreaDashBoardPage/>
         case 'Appointments':
             // return <Appointments/>
         case 'Emergency':

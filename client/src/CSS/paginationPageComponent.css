@@ -1,0 +1,11 @@
+.areaListWrapper{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    height: 88vh;
+}
+.paginationTab{
+    width: 100%;
+}

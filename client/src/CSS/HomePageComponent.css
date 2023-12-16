@@ -132,9 +132,25 @@
 }
 .homePageDivTopSubUnitOneRightUpper{
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    align-items:center;
+    justify-content:flex-end;
 }
+.toggleButtonWrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+    margin-bottom:5px;
+}
+
+.toggleButtonWrapper button{
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
 .areaSearchSelector{
     width:100%;
 }

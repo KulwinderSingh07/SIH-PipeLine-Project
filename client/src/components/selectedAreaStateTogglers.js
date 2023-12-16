@@ -25,10 +25,10 @@ const SelectedAreaStateToggle = ({setSelectedArea,selectedArea}) => {
             setSelectedArea(sortedArr);
     }
     return ( 
-        <>
-         <IconButton onClick={()=>{changeSelectedArea("left")}}><ArrowBackIosIcon/></IconButton>
-         <IconButton onClick={()=>{changeSelectedArea("right")}}><ArrowForwardIosIcon/></IconButton>
-        </>
+        <div className='toggleButtonWrapper'>
+         <IconButton className='toggleButton' onClick={()=>{changeSelectedArea("left")}}><ArrowBackIosIcon fontSize="medium"/></IconButton>
+         <IconButton className='toggleButton' onClick={()=>{changeSelectedArea("right")}}><ArrowForwardIosIcon fontSize="medium"/></IconButton>
+        </div>
      );
 }
  

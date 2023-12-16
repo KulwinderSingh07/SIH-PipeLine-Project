@@ -6,12 +6,16 @@ import  axios  from 'axios'
 import LocationDropSelector from './locationDrop'
 import LineChartComponent from './lineChart'
 import AreaSearchSelector from './areaSearchSelector'
+import SelectedAreaStateToggle from './selectedAreaStateTogglers'
+import {Areas}  from '../data/dummyAreaArray'
+
 
 
 
 const HomePageComponent = () => {
     const [pipeJuctionArr, setpipeJuctionArr] = useState([])
     const [graphData, setGraphData] = useState()
+    const [selectedArea, setSelectedArea] = useState(Areas)
 
     const fetchMapData = async()=>{
       //fetching all the selected lanes from Backend
@@ -35,23 +39,29 @@ const HomePageComponent = () => {
     // }
   
     useEffect(()=>{ 
+      console.log(Areas)
       fetchMapData();
     },[])
   return (
     <div className='mainHomePageCompDiv'>
         <div className='homePageDivTop'>
             <div className='homePageDivTopSubUnitOne'>
-              <div>
+              <div className='homePageDivTopSubUnitOneLeft'>
                 <p style={{fontSize:'30px',fontWeight:'500'}}>Welcome,</p>
                 <p style={{fontSize:'15px'}}>Sunday 29th October, 2023</p>
               </div>
-                <AreaSearchSelector/>
+              <div className='homePageDivTopSubUnitOneRight'>
+                <div className='homePageDivTopSubUnitOneRightUpper'>
+                <SelectedAreaStateToggle setSelectedArea={setSelectedArea} selectedArea={selectedArea}/>
+                </div>
+                <AreaSearchSelector setSelectedArea={setSelectedArea} selectedArea={selectedArea}/>
+              </div>
             </div>
             <div className='homePageDivTopSubUnitTwo'>
-                <DataCard/>
-                <DataCard/>
-                <DataCard/>
-                <DataCard/>
+                <DataCard selectedArea={selectedArea}/>
+                <DataCard selectedArea={selectedArea}/>
+                <DataCard selectedArea={selectedArea}/>
+                <DataCard selectedArea={selectedArea}/>
             </div>
         </div>
         <div className='homePageDivBottom'>

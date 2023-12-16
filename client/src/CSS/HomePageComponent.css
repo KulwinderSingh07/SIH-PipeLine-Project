@@ -127,8 +127,16 @@
   }
 
 
+.homePageDivTopSubUnitOneRight{
+    width: 20%;
+}
+.homePageDivTopSubUnitOneRightUpper{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
 .areaSearchSelector{
-    width:20%;
+    width:100%;
 }
 
 .areaSearchSelectorCheckBox{

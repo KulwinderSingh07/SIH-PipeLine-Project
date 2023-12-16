@@ -16,11 +16,15 @@ require('./db/config');
 //routers
 const pipelineRouter = require('./routes/currentPipelineRoute');
 const locationRouter = require('./routes/locationRoute');
-const selectedRoute = require('./routes/selectRoute');
+const selectedRouter = require('./routes/selectRoute');
+const msgRouter = require('./routes/whatsappMsgRoute');
+const mailRouter = require('./routes/nodeMailerRoute');
 
 app.use('/pipeline',pipelineRouter);
 app.use('/location',locationRouter);
-app.use('/selected',selectedRoute);
+app.use('/selected',selectedRouter);
+app.use('/twilio',msgRouter);
+app.use('/mail',mailRouter);
 
 app.get('/',(req,res)=>{
     return res.send('Backend is running...');

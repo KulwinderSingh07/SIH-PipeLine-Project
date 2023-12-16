@@ -5,6 +5,7 @@ import MapComponent from './map'
 import  axios  from 'axios'
 import LocationDropSelector from './locationDrop'
 import LineChartComponent from './lineChart'
+import AreaSearchSelector from './areaSearchSelector'
 
 
 
@@ -40,8 +41,11 @@ const HomePageComponent = () => {
     <div className='mainHomePageCompDiv'>
         <div className='homePageDivTop'>
             <div className='homePageDivTopSubUnitOne'>
+              <div>
                 <p style={{fontSize:'30px',fontWeight:'500'}}>Welcome,</p>
                 <p style={{fontSize:'15px'}}>Sunday 29th October, 2023</p>
+              </div>
+                <AreaSearchSelector/>
             </div>
             <div className='homePageDivTopSubUnitTwo'>
                 <DataCard/>

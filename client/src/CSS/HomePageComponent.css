@@ -23,6 +23,10 @@
 
 .homePageDivTopSubUnitOne{
     border-style: solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
 }
 
 .homePageDivTopSubUnitTwo{
@@ -121,3 +125,12 @@
     width: 100%;
     max-width: none;
   }
+
+
+.areaSearchSelector{
+    width:20%;
+}
+
+.areaSearchSelectorCheckBox{
+    width: fit-content;
+}

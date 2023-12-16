@@ -2,6 +2,8 @@ import './App.css';
 import DashBoardPage from './components/dashBoard';
 import {Routes,Route} from "react-router-dom"
 import HomePage from './pages/HomePage';
+import LineChartComponent from './components/lineChart';
+import AreaSearchSelector from './components/areaSearchSelector';
 
 function App() {
   return (

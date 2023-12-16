@@ -47,7 +47,7 @@ const MapComponent = ({ pipeJuctionArr }) => {
                   smoothFactor={10}
                   key = {`${loc.startPointName} + ${loc.endPointName}`}
                   eventHandlers={{dblclick:()=> {changePipeMarkerSelector(`${loc.startPointName}+${loc.endPointName}`)},
-                }} 
+                }}
                 >
                   <Tooltip
                     direction="bottom"

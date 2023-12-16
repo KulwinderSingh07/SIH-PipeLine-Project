@@ -18,7 +18,7 @@
     justify-content:space-between;
     align-items: center;
     flex-direction: row;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
 
 .homePageDivTopSubUnitOne{
@@ -45,11 +45,34 @@
 .homePageDivBottomLeftUpperUnit{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     border-style: solid;
     padding: 10px;
     margin: 10px;
+    border: none;
+    background-color: white;
+    max-width:fit-content;
+    width: 100%;
+    overflow: auto;
+    border-radius: 1rem;
+    /* max-height:80%; */
+    /* height: 50%; */
+    padding: 1rem;
 }
+
+.lineChartWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height:235px;
+    width: 35vw;
+    overflow: auto;
+}
+.linechart{
+    width: 100%;
+    height: 100%;
+}
+
 .homePageDivBottomLeftLowerUnit{
     display: flex;
     justify-content: center;
@@ -89,7 +112,7 @@
 }
 
 .locationDropSelectorWrapper{
-    max-height:250px;
+    max-height:235px;
     width: 35vw;
     overflow: auto;
   }

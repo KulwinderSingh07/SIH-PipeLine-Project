@@ -4,9 +4,13 @@ import DataCard from './DataCard'
 import MapComponent from './map'
 import  axios  from 'axios'
 import LocationDropSelector from './locationDrop'
+import LineChartComponent from './lineChart'
+
+
 
 const HomePageComponent = () => {
     const [pipeJuctionArr, setpipeJuctionArr] = useState([])
+    const [graphData, setGraphData] = useState()
 
     const fetchMapData = async()=>{
       //fetching all the selected lanes from Backend
@@ -17,8 +21,19 @@ const HomePageComponent = () => {
       setpipeJuctionArr(finalResult);
       console.log(pipeJuctionArr)
     }
+
+    
+    // const addDataToGraph=()=>{
+    //   const dataDemo={
+    //     label: 'Dataset 3',
+    //     data:[27,17,3,13,22,23,7,45],
+    //     borderColor: 'rgb(23, 152, 225)',
+    //     backgroundColor: 'rgba(13, 142, 225, 0.5)',
+    //   }
+    //   setGraphData(dataDemo)
+    // }
   
-    useEffect(()=>{
+    useEffect(()=>{ 
       fetchMapData();
     },[])
   return (
@@ -38,7 +53,7 @@ const HomePageComponent = () => {
         <div className='homePageDivBottom'>
             <div className='homePageDivBottomLeftUnit'>
             <div className='homePageDivBottomLeftUpperUnit'>
-                <h1>Graph</h1>
+                <LineChartComponent dataSetEntry={graphData}/>
             </div>
             <div className='homePageDivBottomLeftLowerUnit'>
             <LocationDropSelector fetchMapData={fetchMapData} />
@@ -49,6 +64,9 @@ const HomePageComponent = () => {
                 <MapComponent pipeJuctionArr={pipeJuctionArr} />
             </div>
         </div>
+        {/* <button onClick={()=>{
+          addDataToGraph()
+        }}>Add Data</button> */}
     </div>
   )
 }

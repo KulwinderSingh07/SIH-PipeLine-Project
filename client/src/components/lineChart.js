@@ -20,7 +20,7 @@ import { useEffect, useState } from 'react';
     Legend
   );
  const options = {
-    responsive: true,
+    // responsive:true,
     plugins: {
       legend: {
         position: 'top'
@@ -55,7 +55,7 @@ import { useEffect, useState } from 'react';
     },[dataSetEntry])
     return ( 
         <div className='lineChartWrapper'>
-        {graphData && <Line options={options} data={data} className='linechart' />}
+        {graphData && <Line  options={options} data={data} className='linechart' />}
         </div>
      );
 }

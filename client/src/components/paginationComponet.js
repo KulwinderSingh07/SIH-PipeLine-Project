@@ -12,6 +12,7 @@ import IconButton from '@mui/material/IconButton';
 import DoneIcon from '@mui/icons-material/Done';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import Container from "@mui/material/Container"
 
 const columns = [
   { id: 'id', label: 'ID', minWidth: 170 },
@@ -57,16 +58,19 @@ const AreaListPaginationComponent=()=> {
   return (
     // <Paper sx={{ width: '100%', overflow: 'hidden' }}>
     <div className='areaListWrapper'>
+    <Container className='paginationContainer' >
+      {/* <Box> */}
+
       <TableContainer sx={{ maxHeight: 800 }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
               {columns.map((column) => (
-                  <TableCell
-                  key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth }}
-                  >
+                <TableCell
+                key={column.id}
+                align={column.align}
+                style={{ minWidth: column.minWidth }}
+                >
                   {column.label}
                 </TableCell>
               ))}
@@ -83,12 +87,12 @@ const AreaListPaginationComponent=()=> {
             {managerAreaArr
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
-                  return (
-                      <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                return (
+                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
                     {columns.map((column) => {
-                        const value = row[column.id];
-                        return (
-                            <TableCell key={column.id} align={column.align}>
+                      const value = row[column.id];
+                      return (
+                        <TableCell key={column.id} align={column.align}>
                           {column.format && typeof value === 'number'
                             ? column.format(value)
                             : value}
@@ -106,7 +110,9 @@ const AreaListPaginationComponent=()=> {
           </TableBody>
         </Table>
       </TableContainer>
-      <div className='paginationTab'>
+  {/* </Box> */}
+  </Container>
+        <div className='paginationTab'>
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
@@ -115,6 +121,9 @@ const AreaListPaginationComponent=()=> {
         page={page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
+        style={{
+          marginLeft:"19px"
+        }}
         />
         </div>
   </div>

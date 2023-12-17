@@ -16,10 +16,17 @@ const HomePageComponent = () => {
     const [pipeJuctionArr, setpipeJuctionArr] = useState([])
     const [graphData, setGraphData] = useState()
     const [selectedArea, setSelectedArea] = useState(Areas)
+    const [anomalityDataArr, setAnomalityDataArr] = useState([])
 
     const fetchMapData = async()=>{
       //fetching all the selected lanes from Backend
       const data = await axios.get('http://localhost:4000/selected/getSelectedPipes');
+
+      // fetching anomalities list
+      const anomalityList=await axios.get("http://localhost:4000/anomality/getAllAnomality")
+      console.log(anomalityList.data.anomalityDataArr)
+      setAnomalityDataArr(anomalityList.data.anomalityDataArr)
+
       console.log(data.data.allSelected);
       const finalResult = data.data.allSelected;
       
@@ -28,15 +35,19 @@ const HomePageComponent = () => {
     }
 
     
-    // const addDataToGraph=()=>{
-    //   const dataDemo={
-    //     label: 'Dataset 3',
-    //     data:[27,17,3,13,22,23,7,45],
-    //     borderColor: 'rgb(23, 152, 225)',
-    //     backgroundColor: 'rgba(13, 142, 225, 0.5)',
-    //   }
-    //   setGraphData(dataDemo)
-    // }
+    const addDataToGraph=()=>{
+      const dataDemo={
+        label: 'Dataset 3',
+        data:[
+                           {x:'April',y:1000},
+                           {x:'Hello',y:40},
+                           {x:'May',y:35},
+                        ],
+        borderColor: 'rgb(23, 152, 225)',
+        backgroundColor: 'rgba(13, 142, 225, 0.5)',
+      }
+      setGraphData(dataDemo)
+    }
   
     useEffect(()=>{ 
       console.log(Areas)
@@ -75,12 +86,12 @@ const HomePageComponent = () => {
             </div>
             <div className='homePageDivBottomRightUnit'>
                 <h3 className='mapHeading'>Area Overview</h3>
-                <MapComponent pipeJuctionArr={pipeJuctionArr} />
+                <MapComponent pipeJuctionArr={pipeJuctionArr} anomalityDataArr={anomalityDataArr} />
             </div>
         </div>
-        {/* <button onClick={()=>{
+        <button onClick={()=>{
           addDataToGraph()
-        }}>Add Data</button> */}
+        }}>Add Data</button>
     </div>
   )
 }

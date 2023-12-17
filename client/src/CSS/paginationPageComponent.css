@@ -1,11 +1,19 @@
 .areaListWrapper{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
     height: 88vh;
+    justify-content: space-between;
 }
+
+/* .paginationContainer{
+    display: flex;
+
+    justify-content: space-between;
+} */
 .paginationTab{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
 }

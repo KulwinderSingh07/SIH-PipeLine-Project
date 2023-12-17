@@ -1,5 +1,7 @@
 // import { polyline } from "leaflet";
 import { useEffect, useState, useMemo } from "react";
+import { Icon } from 'leaflet';
+
 import {
   MapContainer,
   TileLayer,
@@ -10,10 +12,16 @@ import {
   Tooltip,
 } from "react-leaflet";
 
-const MapComponent = ({ pipeJuctionArr }) => {
+const MapComponent = ({ pipeJuctionArr ,anomalityDataArr}) => {
     const [pipeMarkerSelector, setPipeMarkerSelector] = useState("")
     const limeOptions = { color: "blue" };
 
+    const customMarkerIcon = new Icon({
+      iconUrl:require("../assets/anomalityicon.png"), // Replace with the path to your image
+      iconSize: [32, 32]
+        });
+
+    
     const changePipeMarkerSelector=(pipeIdentifier)=>{
       if(pipeMarkerSelector==pipeIdentifier){
         setPipeMarkerSelector("")
@@ -89,6 +97,22 @@ const MapComponent = ({ pipeJuctionArr }) => {
                 </Polyline>
               );
             })}
+            {
+              anomalityDataArr.length!=0 && anomalityDataArr.map((anomalityObj)=>{
+                return(
+                  <Marker icon={customMarkerIcon} position={[anomalityObj.anomalityLocLat,anomalityObj.anomalityLocLong]}>
+                    <Popup>
+                      <div>
+                        <h2>Anomality Type:{anomalityObj.anomalityType}</h2>
+                      </div>
+                      <div>
+                        <p>Occurence Time:Currently</p>
+                      </div>
+                      </Popup>
+                    </Marker>
+                )
+              })
+            }
         </MapContainer>
     </div>
   );

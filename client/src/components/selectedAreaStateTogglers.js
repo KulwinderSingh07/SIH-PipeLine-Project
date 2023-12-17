@@ -9,7 +9,7 @@ const SelectedAreaStateToggle = ({setSelectedArea,selectedArea}) => {
             setSelectedArea(selectedArea)
             return
         }
-        console.log(index)
+        // console.log(index)
         let length=selectedArea.length
         let sortedArr
         if(direction=="left"){

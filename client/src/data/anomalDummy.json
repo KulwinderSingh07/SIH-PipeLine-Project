@@ -1,0 +1,51 @@
+[
+    {
+      "pipeId": "657f4b9911202daacb1da900",
+      "anomalityType": "Larsen Mathews",
+      "anomalityLocLat": 60.597546,
+      "anomalityLocLong": 158.703846,
+      "status": false
+    },
+    {
+      "pipeId": "657f4b995e32363047a12d19",
+      "anomalityType": "Richardson Harrell",
+      "anomalityLocLat": -76.32408,
+      "anomalityLocLong": 175.649735,
+      "status": false
+    },
+    {
+      "pipeId": "657f4b99141ece700e391446",
+      "anomalityType": "Ladonna Stevenson",
+      "anomalityLocLat": -81.5584,
+      "anomalityLocLong": 176.687268,
+      "status": false
+    },
+    {
+      "pipeId": "657f4b99e5830145bdd927e0",
+      "anomalityType": "Bruce Mueller",
+      "anomalityLocLat": 58.826304,
+      "anomalityLocLong": -175.87981,
+      "status": false
+    },
+    {
+      "pipeId": "657f4b99a305b96905ac4308",
+      "anomalityType": "Reba Branch",
+      "anomalityLocLat": 16.194371,
+      "anomalityLocLong": -90.072708,
+      "status": false
+    },
+    {
+      "pipeId": "657f4b99089d145ff7183cd1",
+      "anomalityType": "Small Bailey",
+      "anomalityLocLat": 30.583457,
+      "anomalityLocLong": 178.790668,
+      "status": false
+    },
+    {
+      "pipeId": "657f4b99826a978290f3b6b6",
+      "anomalityType": "Morrow Payne",
+      "anomalityLocLat": -43.431883,
+      "anomalityLocLong": -41.237286,
+      "status": false
+    }
+  ]

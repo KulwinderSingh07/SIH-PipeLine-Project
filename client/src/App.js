@@ -10,7 +10,7 @@ function App() {
       <Routes>
       <Route exact path='/' element={<HomePage/>}/>
       <Route exact path='/AreaDashBoard' element={<AreaDashBoardPage/>}/>
-      {/* <Route exact path='/authUser' element={<LoginSingupCompoent/>}/> */}
+      <Route exact path='/authUser' element={<LoginSingupCompoent/>}/>
       </Routes>
     </div>
   );

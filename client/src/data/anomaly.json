@@ -1,0 +1,14 @@
+{"anomaly_data":
+{
+   "<pipe_id>":[
+   {
+    "node_1":"<node_1_id>",
+    "node_2":"<node_2_id>",
+    "latitude":"",
+    "longitude":"",
+    "anomaly_type":"",
+    "time_stamp":""
+   }
+]
+}
+}

@@ -37,11 +37,15 @@ import { useEffect, useState } from 'react';
   const LineChartComponent = ({dataSetEntry}) => {
       const [graphData, setGraphData] = useState([{
           label: 'Dataset 1',
-          data: [2,4,5,2,3,2,9,10],
+          data:[
+                           {x:'January',y:304},
+                           {x:'February',y:400},
+                           {x:'March',y:35},
+                        ],
           borderColor: 'rgb(255, 99, 132)',
           backgroundColor: 'rgba(255, 99, 132, 0.5)',
         }])
-        const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July','August'];
+        const labels = ['',]
     const data = {
         labels,
         datasets:graphData

@@ -20,6 +20,7 @@ const selectedRouter = require('./routes/selectRoute');
 const msgRouter = require('./routes/whatsappMsgRoute');
 const mailRouter = require('./routes/nodeMailerRoute');
 const anomalityRouter = require('./routes/anomalityRoute');
+const pipeFlowRoute=require("./routes/pipeFlowRoute")
 
 app.use('/pipeline',pipelineRouter);
 app.use('/location',locationRouter);
@@ -27,6 +28,7 @@ app.use('/selected',selectedRouter);
 app.use('/twilio',msgRouter);
 app.use('/mail',mailRouter);
 app.use('/anomality',anomalityRouter);
+app.use("/pipeflow",pipeFlowRoute)
 
 app.get('/',(req,res)=>{
     return res.send('Backend is running...');

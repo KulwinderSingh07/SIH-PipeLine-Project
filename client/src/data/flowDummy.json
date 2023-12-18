@@ -1,0 +1,22 @@
+[
+    {
+      "junctionId": "657fa5221f4a7bd5bc4467d1",
+      "flowrate": 32
+    },
+    {
+      "junctionId": "657fa5221e5331ced4f0f9ce",
+      "flowrate": 36
+    },
+    {
+      "junctionId": "657fa522e464b91b3928c63c",
+      "flowrate": 31
+    },
+    {
+      "junctionId": "657fa522f80c53f0238ea39e",
+      "flowrate": 24
+    },
+    {
+      "junctionId": "657fa5228d00f89e97dcee3b",
+      "flowrate": 40
+    }
+  ]

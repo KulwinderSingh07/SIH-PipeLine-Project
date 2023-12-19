@@ -2,7 +2,8 @@ import './App.css';
 import {Routes,Route} from "react-router-dom"
 import HomePage from './pages/HomePage';
 import AreaDashBoardPage from './components/areaDashBoard';
-import LoginSingupCompoent from './components/authCompoent';
+import Login from './pages/auth/Login';
+import Register from './pages/auth/Register';
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
       <Routes>
       <Route exact path='/' element={<HomePage/>}/>
       <Route exact path='/AreaDashBoard' element={<AreaDashBoardPage/>}/>
-      <Route exact path='/authUser' element={<LoginSingupCompoent/>}/>
+      <Route exact path='/auth/login' element={<Login/>}/>
+      <Route exact path='/auth/register' element={<Register/>}/>
       </Routes>
     </div>
   );

@@ -86,7 +86,7 @@ function ResponsiveDrawer(props) {
 
       <Divider />
       <List>
-        {['Dashboard', 'Manage Areas', 'Calendar', 'Area Profile','Alerts'].map((text, index) => (
+        {['Dashboard', 'Manage Areas', 'Calendar','Alerts'].map((text, index) => (
           <ListItem sx={{p:1.5 , color:textColor,
             ":hover": {
             bgcolor: "#F8F8F8",

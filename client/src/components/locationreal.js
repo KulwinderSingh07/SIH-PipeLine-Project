@@ -19,6 +19,35 @@ const LocationDrop = ({ fetchMapData }) => {
   const [locationsArr, setLocationsArr] = useState([]);
   const [pipesData,setPipesData] = useState([]);
 
+  let nameMap = new Map();
+  nameMap["hostel_D"] = "Hostel D";
+  nameMap["hostel_O"] = "Hostel O";
+  nameMap["hostel_C"] = "Hostel C";
+  nameMap["hostel_B"] = "Hostel B";
+  nameMap["hostel_M"] = "Hostel M";
+  nameMap["hostel_A"] = "Hostel A";
+  nameMap["hostel_H"] = "Hostel H";
+  nameMap["hostel_PG"] = "Hostel PG";
+  nameMap["hostel_Q"] = "Hostel Q";
+  nameMap["hostel_J"] = "Hostel J";
+  nameMap["hostel_k"] = "Hostel K";
+  nameMap["hostel_l"] = "Hostel L";
+  nameMap["junction_3"] = "Junction 3";
+  nameMap["junction_5"] = "Junction 5";
+  nameMap["junction_4"] = "Junction 4";
+  nameMap["junction_6"] = "Junction 6";
+  nameMap["junction_1"] = "Junction 1";
+  nameMap["junction_2"] = "Junction 2";
+  nameMap["synthetic_running_track"] = "Synthetic Running Track";
+  nameMap["cos_complex"] = "Cos Complex";
+  nameMap["pool"] = "Pool";
+  nameMap["library"] = "Library";
+  nameMap["D_block"] = "D Block";
+  nameMap["F_block"] = "F Block";
+  nameMap["E_block"] = "E Block";
+  nameMap["G_block"] = "G Block";
+  nameMap["admin_block"] = "Admin Block";
+
   const getLocationData = async () => {
     //Setting the initial Locations with Co-Ordinates Data from local json
     const JunctionArr=await axios.get("http://localhost:4000/junction/getAllJunctions")

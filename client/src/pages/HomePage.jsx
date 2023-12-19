@@ -148,7 +148,7 @@ function ResponsiveDrawer(props) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar
+      {/* <AppBar
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
@@ -159,7 +159,7 @@ function ResponsiveDrawer(props) {
       <div className='headSection'>
         <h2>{headerText} Section</h2>
       </div>
-      </AppBar>
+      </AppBar> */}
 
       {/*This  Box below has Drawer/SideBar*/}
       <Box
@@ -199,7 +199,7 @@ function ResponsiveDrawer(props) {
         component="main"
         sx={{minHeight:'100vh',bgcolor:'#eaf2fb', flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
-        <Toolbar /> {/*This is a dummy toolbar just for gapping */}
+        {/* <Toolbar /> This is a dummy toolbar just for gapping */}
         
         {/*Render the content here below  depending upon the selected sidebar option*/}
           

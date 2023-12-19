@@ -34,32 +34,42 @@ import { useEffect, useState } from 'react';
 
   
   
-  const LineChartComponent = ({dataSetEntry}) => {
+  const LineChartComponent = ({graphDataToDisplay}) => {
+    const [dataDisplay, setDataDisplay] = useState({
+      labels:['',],
+      datasets:[{
+        label: "Dummy",
+        data:[],
+        borderColor: 'rgb(23, 152, 225)',
+        backgroundColor: 'rgba(13, 142, 225, 0.5)',
+      }]
+    })
       const [graphData, setGraphData] = useState([{
-          label: 'Dataset 1',
-          data:[
-                           {x:'January',y:304},
-                           {x:'February',y:400},
-                           {x:'March',y:35},
-                        ],
-          borderColor: 'rgb(255, 99, 132)',
-          backgroundColor: 'rgba(255, 99, 132, 0.5)',
-        }])
-        const labels = ['',]
-    const data = {
-        labels,
-        datasets:graphData
-      };
+        label: "Dummy",
+        data:[],
+        borderColor: 'rgb(23, 152, 225)',
+        backgroundColor: 'rgba(13, 142, 225, 0.5)',
+      }])
     useEffect(()=>{
-        if(dataSetEntry!=undefined){
-            setGraphData([...graphData,dataSetEntry])
-            console.log(dataSetEntry)
-            console.log(graphData)
+      console.log(graphDataToDisplay)
+        if(graphDataToDisplay.length!==0){
+          if(graphData.length==1){
+            graphData.pop()
+          }
+          let newDatadis=dataDisplay
+          if(newDatadis.datasets.length==1){
+            newDatadis.datasets.pop()  
+          }
+          newDatadis.datasets.push(graphDataToDisplay[0])
+
+          setDataDisplay(newDatadis)
+            console.log(graphDataToDisplay)
+            // console.log(graphData)
         }
-    },[dataSetEntry])
+    },[graphDataToDisplay])
     return ( 
         <div className='lineChartWrapper'>
-        {graphData && <Line  options={options} data={data} className='linechart' />}
+        {dataDisplay && <Line  options={options} data={dataDisplay} className='linechart' />}
         </div>
      );
 }

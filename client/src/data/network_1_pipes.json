@@ -11,7 +11,7 @@
         {"start_node_name": "hostel_H", "end_node_name": "junction_3", "length": 100, "diameter": 0.17, "initial_status": "OPEN", "minor_loss": 0, "selected":false},
         {"start_node_name": "hostel_PG", "end_node_name": "junction_3", "length": 100, "diameter": 0.16, "initial_status": "OPEN", "minor_loss": 0, "selected":false},
         {"start_node_name": "hostel_Q", "end_node_name": "junction_3", "length": 100, "diameter": 0.18, "initial_status": "OPEN", "minor_loss": 0, "selected":false},
-        {"start_node_name": "cos_complex", "end_node_name": "synthetic_running_track", "length": 100, "diameter": 0.15, "initial_status": "OPEN", "minor_loss": 0, "selected":false},
+        {"start_node_name": "junction_2", "end_node_name": "synthetic_running_track", "length": 100, "diameter": 0.15, "initial_status": "OPEN", "minor_loss": 0, "selected":false},
         {"start_node_name": "pool", "end_node_name": "junction_4", "length": 100, "diameter": 0.17, "initial_status": "OPEN", "minor_loss": 0, "selected":false},
         {"start_node_name": "hostel_K", "end_node_name": "junction_4", "length": 100, "diameter": 0.17, "initial_status": "OPEN", "minor_loss": 0, "selected":false},
         {"start_node_name": "junction_1", "end_node_name": "junction_3", "length": 100, "diameter": 0.87, "initial_status": "OPEN", "minor_loss": 0, "selected":false},

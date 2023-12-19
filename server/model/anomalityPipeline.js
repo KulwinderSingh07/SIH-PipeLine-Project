@@ -3,7 +3,11 @@ const anomalitySchema = new mongoose.Schema({
     pipeId: {
         required: true,
         type:String
-    }, 
+    },
+     areaId:{
+        type:mongoose.Schema.Types.ObjectId,
+        required:true
+     },
     anomalityLocLat:{
         type:Number
     },

@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const pipeFlowSchema = new mongoose.Schema({
     junctionId: {
-        required: true,
-        type:String
+        type:mongoose.Schema.Types.ObjectId,
+        required: true
     },
     flowrate:{
         type:Number,

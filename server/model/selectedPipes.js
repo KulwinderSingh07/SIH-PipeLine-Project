@@ -27,7 +27,11 @@ const currentPipelinesSchema = new mongoose.Schema({
 },{collection: 'CurrentPipeline'});
 
 const selectedSchema = new mongoose.Schema({
-    currentPipeline : [currentPipelinesSchema],
+    currentPipeline : currentPipelinesSchema,
+    junction_name:{
+        type:String,
+        required:true
+    },
     startCoordinates:{
         type: [Number]
     },

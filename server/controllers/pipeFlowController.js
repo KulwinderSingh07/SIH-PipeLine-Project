@@ -1,15 +1,25 @@
+const locationModel = require("../model/locationModel")
 const pipelineFlowModel = require("../model/pipelineFlowModel")
 
 const fetchPipeFlow=async(req,res)=>{
     try{
-        // console.log(req)
-        const PipeFlowArr=await pipelineFlowModel.find({junctionId:req.body.junctionId})
-        console.log(PipeFlowArr)
-        const pipeFlowArr= PipeFlowArr.forEach((pipe)=>{
-            console.log(pipe)
-        })
+        console.log(req.body)
+        const JunctionObj=await locationModel.findOne({name:req.body.junctionName})
+        console.log(JunctionObj)
+        const PipeFlowArr=await pipelineFlowModel.find({junctionId:JunctionObj._id})
+        const dataPropForLineChart={
+            label: req.body.junctionName,
+            data:[],
+            borderColor: 'rgb(23, 152, 225)',
+            backgroundColor: 'rgba(13, 142, 225, 0.5)',
+          }
+         const newDataset=PipeFlowArr.map((instanceFlow)=>{
+            return {x:instanceFlow.checkEpoch,y:instanceFlow.flowrate}
+          })
+          dataPropForLineChart.data=newDataset
+          console.log(dataPropForLineChart)
         res.json({
-            flowdata:PipeFlowArr
+            flowdata:dataPropForLineChart
         })
        
     }catch(err){

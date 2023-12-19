@@ -1,0 +1,50 @@
+[
+    {
+        "node_name": "junction_1",
+        "selected": false,
+        "coordinates": [
+            30.35181200314026,
+            76.36128692884307
+        ]
+    },
+    {
+        "node_name": "junction_2",
+        "selected": false,
+        "coordinates": [
+            30.35384860743729,
+            76.36246728687428
+        ]
+    },
+    {
+        "node_name": "junction_3",
+        "selected": false,
+        "coordinates": [
+            30.352374433335836,
+            76.36521068935289
+        ]
+    },
+    {
+        "node_name": "junction_4",
+        "selected": false,
+        "coordinates": [
+            30.354355854397433,
+            76.36493820664604
+        ]
+    },
+    {
+        "node_name": "junction_5",
+        "selected": false,
+        "coordinates": [
+            30.354126421400878,
+            76.36997429683603
+        ]
+    },
+    {
+        "node_name": "junction_6",
+        "selected": false,
+        "coordinates": [
+            30.354396342478843,
+            76.37167124029875
+        ]
+    }
+]

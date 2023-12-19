@@ -1,8 +1,7 @@
-{"flow_data":
+[
     {
-        "<node_name>":{
+        "<node_name>":"",
             "timestamp":"",
             "flow_rate":""
         }
-    }
-}
+]

@@ -1,0 +1,255 @@
+
+[
+        {
+            "start_node_name": "reservoir_1",
+            "end_node_name": "junction_3",
+            "length": 110.33012050365599,
+            "diameter": 0.7,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "reservoir_2",
+            "end_node_name": "junction_6",
+            "length": 167.99347289630398,
+            "diameter": 0.9,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_1",
+            "end_node_name": "hostel_D",
+            "length": 138.806654330256,
+            "diameter": 0.17,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_1",
+            "end_node_name": "hostel_O",
+            "length": 100.724969747016,
+            "diameter": 0.19,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_1",
+            "end_node_name": "hostel_C",
+            "length": 98.5275549384,
+            "diameter": 0.16,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_1",
+            "end_node_name": "hostel_B",
+            "length": 200.107949610072,
+            "diameter": 0.17,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_1",
+            "end_node_name": "hostel_M",
+            "length": 158.2817368014,
+            "diameter": 0.18,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_3",
+            "end_node_name": "hostel_A",
+            "length": 127.68498101256002,
+            "diameter": 0.17,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_3",
+            "end_node_name": "hostel_H",
+            "length": 82.092747113136,
+            "diameter": 0.17,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_3",
+            "end_node_name": "hostel_PG",
+            "length": 145.031604682464,
+            "diameter": 0.16,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_3",
+            "end_node_name": "hostel_Q",
+            "length": 239.42117941017602,
+            "diameter": 0.18,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_2",
+            "end_node_name": "synthetic_running_track",
+            "length": 70.18976777868001,
+            "diameter": 0.15,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_4",
+            "end_node_name": "pool",
+            "length": 117.03864962556001,
+            "diameter": 0.17,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_4",
+            "end_node_name": "hostel_K",
+            "length": 354.16032616104,
+            "diameter": 0.17,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_1",
+            "end_node_name": "junction_3",
+            "length": 382.29131208335997,
+            "diameter": 0.87,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_4",
+            "end_node_name": "junction_5",
+            "length": 484.75552480248,
+            "diameter": 0.56,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_5",
+            "end_node_name": "library",
+            "length": 44.826866895744,
+            "diameter": 0.19,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_5",
+            "end_node_name": "hostel_I",
+            "length": 242.964148616832,
+            "diameter": 0.17,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_6",
+            "end_node_name": "junction_5",
+            "length": 165.837675056016,
+            "diameter": 0.78,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_6",
+            "end_node_name": "D_block",
+            "length": 95.89433890639201,
+            "diameter": 0.18,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_6",
+            "end_node_name": "F_block",
+            "length": 53.641040572416,
+            "diameter": 0.13,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_6",
+            "end_node_name": "E_block",
+            "length": 116.21284764292801,
+            "diameter": 0.14,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_6",
+            "end_node_name": "G_block",
+            "length": 225.280908557424,
+            "diameter": 0.15,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_6",
+            "end_node_name": "admin_block",
+            "length": 129.279905302512,
+            "diameter": 0.19,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_1",
+            "end_node_name": "junction_2",
+            "length": 252.643220728296,
+            "diameter": 0.69,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_2",
+            "end_node_name": "cos_complex",
+            "length": 56.200866458088,
+            "diameter": 0.19,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_3",
+            "end_node_name": "hostel_J",
+            "length": 192.126520848552,
+            "diameter": 0.13,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        },
+        {
+            "start_node_name": "junction_3",
+            "end_node_name": "junction_4",
+            "length": 221.17236997543202,
+            "diameter": 0.83,
+            "initial_status": "OPEN",
+            "minor_loss": 0,
+            "selected": false
+        }
+    ]

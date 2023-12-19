@@ -1,0 +1,27 @@
+[
+    {
+        "areaName":"junction_1",
+        "selected":false
+    },
+    {
+        "areaName":"junction_2",
+        "selected":false
+    },
+    {
+        "areaName":"junction_3",
+        "selected":false
+    },
+    {
+        "areaName":"junction_4",
+        "selected":false    
+    },
+    {
+        "areaName":"junction_5",
+        "selected":false
+    },
+
+    {
+        "areaName":"junction_6",
+        "selected":false
+    }
+]

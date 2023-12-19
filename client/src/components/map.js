@@ -1,7 +1,7 @@
 // import { polyline } from "leaflet";
 import { useEffect, useState, useMemo } from "react";
 import { Icon } from 'leaflet';
-
+import axios from "axios"
 import {
   MapContainer,
   TileLayer,
@@ -12,8 +12,9 @@ import {
   Tooltip,
 } from "react-leaflet";
 
-const MapComponent = ({ pipeJuctionArr ,anomalityDataArr}) => {
+const MapComponent = ({ pipeJuctionArr ,anomalityDataArr,inputIntoGraph}) => {
     const [pipeMarkerSelector, setPipeMarkerSelector] = useState("")
+    // const [graphDataToDisplay, setGraphDataToDisplay] = useState([])
     const limeOptions = { color: "blue" };
 
     const customMarkerIcon = new Icon({
@@ -23,12 +24,23 @@ const MapComponent = ({ pipeJuctionArr ,anomalityDataArr}) => {
 
     
     const changePipeMarkerSelector=(pipeIdentifier)=>{
+
       if(pipeMarkerSelector==pipeIdentifier){
         setPipeMarkerSelector("")
       }else{
         setPipeMarkerSelector(pipeIdentifier)
       }
     }
+
+    const colorSelector=(loc)=>{
+      if(loc.startPointName.startsWith("junction") && loc.endPointName.startsWith("junction")){
+        return "red"
+      }else{
+        return "blue"
+      }
+    }
+
+ 
 
     useEffect(()=>{
       console.log(pipeJuctionArr);
@@ -49,7 +61,9 @@ const MapComponent = ({ pipeJuctionArr ,anomalityDataArr}) => {
             pipeJuctionArr.length!=0 && pipeJuctionArr.map((loc) => {
               return (  
                 <Polyline
-                  pathOptions={limeOptions}
+                  pathOptions={
+                    {color:colorSelector(loc)}
+                  }
                   positions={[loc.startCoordinates,loc.endCoordinates]}
                   weight={5}
                   smoothFactor={10}
@@ -70,20 +84,26 @@ const MapComponent = ({ pipeJuctionArr ,anomalityDataArr}) => {
                     <div>
                     <h2>StartPoint : {loc.startPointName}</h2>
                     <h2>EndPoint : {loc.endPointName}</h2>
-                    <p>Pipeline Diameter : {loc.currentPipeline[0].diameter}</p>
-                    <p>Pipeline Length : {loc.currentPipeline[0].length}</p>
-                    <p>Pipeline Loss : {loc.currentPipeline[0].minor_loss}</p>
+                    <p>Pipeline Diameter : {loc.currentPipeline.diameter}</p>
+                    <p>Pipeline Length : {loc.currentPipeline.length}</p>
+                    <p>Pipeline Loss : {loc.currentPipeline.minor_loss}</p>
                     </div>
                     {pipeMarkerSelector==`${loc.startPointName}+${loc.endPointName}` ?
                       <>
-                        <Marker position={loc.startCoordinates}>
+                        <Marker position={loc.startCoordinates} eventHandlers={{click:()=>{
+                          console.log(loc)
+                          inputIntoGraph(loc.startPointName)
+                        }}}>
                           <Popup>
                             <div>
                             <h2>StartPoint : {loc.startPointName}</h2>
                             </div>
                           </Popup>
                         </Marker>
-                        <Marker position={loc.endCoordinates}>
+                        <Marker position={loc.endCoordinates} eventHandlers={{click:()=>{
+                          console.log(loc)
+                          inputIntoGraph(loc.endPointName)
+                        }}}>
                           <Popup>
                           <div>
                             <h2>EndPoint : {loc.endPointName}</h2>

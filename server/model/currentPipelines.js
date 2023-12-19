@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 const currentPipelinesSchema = new mongoose.Schema({
+    junction_name:{
+        type:String,
+        required:true
+    },
     start_node_name: {
         required: true,
         type:String

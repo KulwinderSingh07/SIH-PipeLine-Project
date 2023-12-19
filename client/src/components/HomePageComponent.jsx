@@ -8,16 +8,20 @@ import LineChartComponent from './lineChart'
 import AreaSearchSelector from './areaSearchSelector'
 import SelectedAreaStateToggle from './selectedAreaStateTogglers'
 import {Areas}  from '../data/dummyAreaArray'
+import LocationDrop from './locationreal'
 
 
 
 
 const HomePageComponent = () => {
     const [pipeJuctionArr, setpipeJuctionArr] = useState([])
-    const [graphData, setGraphData] = useState()
+    const [graphData, setGraphData] = useState([])
     const [selectedArea, setSelectedArea] = useState(Areas)
     const [anomalityDataArr, setAnomalityDataArr] = useState([])
+    const [graphDataToDisplay, setGraphDataToDisplay] = useState([])
 
+
+    // fetchind data to display at the map
     const fetchMapData = async()=>{
       //fetching all the selected lanes from Backend
       const data = await axios.get('http://localhost:4000/selected/getSelectedPipes');
@@ -33,6 +37,45 @@ const HomePageComponent = () => {
       setpipeJuctionArr(finalResult);
       console.log(pipeJuctionArr)
     }
+
+    
+    const constructNewLineGraphDataSet=async(dataArr,junctionName)=>{
+      const dataPropForLineChart={
+        label: junctionName,
+        data:[],
+        borderColor: 'rgb(23, 152, 225)',
+        backgroundColor: 'rgba(13, 142, 225, 0.5)',
+      }
+     const newDataset=await dataArr.map((instanceFlow)=>{
+        return {x:instanceFlow.checkEpoch,y:instanceFlow.flowrate}
+      })
+      console.log(newDataset)
+      return dataPropForLineChart
+    }
+
+    const inputIntoGraph=async(junctionName)=>{
+      console.log(graphDataToDisplay)
+      let index=graphDataToDisplay.findIndex(val=>val.junctionName==junctionName)
+      console.log(index)
+      if(index==-1){
+      const graphInput=await axios.post("http://localhost:4000/pipeflow/getPipeFlow",{
+        junctionName:junctionName})
+        console.log(graphInput)
+        console.log(graphInput.data.flowdata)
+        // const dataPropForLineChart=await constructNewLineGraphDataSet(graphInput.data.flowdata,junctionName)
+        // console.log(dataPropForLineChart)
+        setGraphDataToDisplay([...graphDataToDisplay,graphInput.data.flowdata])
+        // setGraphDataToDisplay(graphInput.data.flowdata)
+
+      // console.log(dataPropForLineChart,junctionName) 
+    }else{
+      console.log("chal reah")
+    const newJunctionDataArr=graphDataToDisplay.map((junction=>{
+      return junction.junctionName!=junctionName
+    }))
+    setGraphDataToDisplay(newJunctionDataArr)
+  }
+}
 
     
     const addDataToGraph=()=>{
@@ -78,17 +121,21 @@ const HomePageComponent = () => {
         <div className='homePageDivBottom'>
             <div className='homePageDivBottomLeftUnit'>
             <div className='homePageDivBottomLeftUpperUnit'>
-                <LineChartComponent dataSetEntry={graphData}/>
+                <LineChartComponent graphDataToDisplay={graphDataToDisplay}/>
             </div>
             <div className='homePageDivBottomLeftLowerUnit'>
-            <LocationDropSelector fetchMapData={fetchMapData} />
+            {/* <LocationDropSelector fetchMapData={fetchMapData} /> */}
+            <LocationDrop fetchMapData={fetchMapData} />
             </div>
             </div>
             <div className='homePageDivBottomRightUnit'>
                 <h3 className='mapHeading'>Area Overview</h3>
-                <MapComponent pipeJuctionArr={pipeJuctionArr} anomalityDataArr={anomalityDataArr} />
+                <MapComponent pipeJuctionArr={pipeJuctionArr} anomalityDataArr={anomalityDataArr} inputIntoGraph={inputIntoGraph}/>
             </div>
         </div>
+        {/* <button onClick={()=>{
+          addDataToGraph()
+        }}>Add Data</button> */}
         {/* <button onClick={()=>{ */}
           {/* addDataToGraph() */}
         {/* }}>Add Data</button> */}

@@ -150,26 +150,27 @@ const LocationDropSelector = ({ fetchMapData }) => {
                     {pipesData.map((item)=>{
                       if(item.start_node_name == locDetails.location || item.end_node_name == locDetails.location){
                         return (
-                          <FormControlLabel
-                            control={
-                              <Checkbox
-                                checked={item.selected == false ? false : true}
-                                onClick={() => {
-                                  setDisplayLat(item);
-                                }}
-                              />
-                            }
-                            label={
-                              <div>
-                                <Typography variant="body1">
-                                  Start-Node: {tmpMap[item.start_node_name]}
-                                </Typography>
-                                <Typography variant="body1">
-                                  End-Node: {tmpMap[item.end_node_name]}
-                                </Typography>
-                              </div>
-                            }
-                          />
+                          // <FormControlLabel
+                          //   control={
+                          //     <Checkbox
+                          //       checked={item.selected == false ? false : true}
+                          //       onClick={() => {
+                          //         setDisplayLat(item);
+                          //       }}
+                          //     />
+                          //   }
+                          //   label={
+                          //     <div>
+                          //       <Typography variant="body1">
+                          //         Start-Node: {tmpMap[item.start_node_name]}
+                          //       </Typography>
+                          //       <Typography variant="body1">
+                          //         End-Node: {tmpMap[item.end_node_name]}
+                          //       </Typography>
+                          //     </div>
+                          //   }
+                          // />
+                        <Typography>{item.start_node_name}</Typography>  
                         )
                       }
                       

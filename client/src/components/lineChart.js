@@ -36,10 +36,13 @@ import { useEffect, useState } from 'react';
   
   const LineChartComponent = ({graphDataToDisplay}) => {
     const [dataDisplay, setDataDisplay] = useState({
-      labels:['',],
+      labels:['',"January","Febuary","December"],
       datasets:[{
-        label: "Dummy",
-        data:[],
+        label: "Junction",
+        data:[{x:"January",y:23},
+        {x:"Febuary",y:49},
+        {x:"December",y:104}
+      ],
         borderColor: 'rgb(23, 152, 225)',
         backgroundColor: 'rgba(13, 142, 225, 0.5)',
       }]

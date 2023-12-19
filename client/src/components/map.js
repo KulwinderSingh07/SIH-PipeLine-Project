@@ -12,13 +12,17 @@ import {
   Tooltip,
 } from "react-leaflet";
 
-const MapComponent = ({ pipeJuctionArr ,anomalityDataArr,inputIntoGraph}) => {
+const MapComponent = ({ pipeJuctionArr ,anomalityDataArr,inputIntoGraph,markerJunctionsArr}) => {
     const [pipeMarkerSelector, setPipeMarkerSelector] = useState("")
     // const [graphDataToDisplay, setGraphDataToDisplay] = useState([])
     const limeOptions = { color: "blue" };
 
     const customMarkerIcon = new Icon({
       iconUrl:require("../assets/anomalityicon.png"), // Replace with the path to your image
+      iconSize: [32, 32]
+        });
+    const junctionMarker = new Icon({
+      iconUrl:require("../assets/junction.png"), // Replace with the path to your image
       iconSize: [32, 32]
         });
 
@@ -36,7 +40,7 @@ const MapComponent = ({ pipeJuctionArr ,anomalityDataArr,inputIntoGraph}) => {
       if(loc.startPointName.startsWith("junction") && loc.endPointName.startsWith("junction")){
         return "red"
       }else{
-        return "blue"
+        return "purple"
       }
     }
 
@@ -117,6 +121,22 @@ const MapComponent = ({ pipeJuctionArr ,anomalityDataArr,inputIntoGraph}) => {
                 </Polyline>
               );
             })}
+            {markerJunctionsArr.length!=0 && markerJunctionsArr.map((junctionObj)=>{
+              return(
+                <Marker icon={junctionMarker} position={[junctionObj.coordinates[0],junctionObj.coordinates[1]]}>
+                    <Popup>
+                      <div>
+                        <h2>Name:{junctionObj.junctionName}</h2>
+                        <p>Water Quality Index : {junctionObj.water_quality_index}</p>
+                    <p>Issues issues_pending : {junctionObj.issues_pending}</p>
+                    <p>Issues Resolved : {junctionObj.issues_resolved}</p>
+                      </div>
+                      </Popup>
+                    </Marker>
+              )
+            })
+
+            }
             {
               anomalityDataArr.length!=0 && anomalityDataArr.map((anomalityObj)=>{
                 return(

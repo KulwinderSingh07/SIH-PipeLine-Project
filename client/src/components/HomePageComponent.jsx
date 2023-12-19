@@ -19,6 +19,7 @@ const HomePageComponent = () => {
     const [selectedArea, setSelectedArea] = useState(Areas)
     const [anomalityDataArr, setAnomalityDataArr] = useState([])
     const [graphDataToDisplay, setGraphDataToDisplay] = useState([])
+    const [markerJunctionsArr, setMarkerJunctionsArr] = useState([])
 
 
     // fetchind data to display at the map
@@ -48,6 +49,10 @@ const HomePageComponent = () => {
       setSelectedArea(selectedAreadata.data.selectedJunctions)
 
       console.log(selectedAreadata.data.selectedJunctions)
+
+      const fetchedAllJunctions=await axios.get("http://localhost:4000/junction/getAllJunctions")
+      console.log(fetchedAllJunctions.data)
+      setMarkerJunctionsArr(fetchedAllJunctions.data)
     }
 
     
@@ -142,7 +147,9 @@ const HomePageComponent = () => {
             </div>
             <div className='homePageDivBottomRightUnit'>
                 <h3 className='mapHeading'>Area Overview</h3>
-                <MapComponent pipeJuctionArr={pipeJuctionArr} anomalityDataArr={anomalityDataArr} inputIntoGraph={inputIntoGraph}/>
+                <MapComponent pipeJuctionArr={pipeJuctionArr} anomalityDataArr={anomalityDataArr} inputIntoGraph={inputIntoGraph}
+                markerJunctionsArr={markerJunctionsArr}
+                />
             </div>
         </div>
         {/* <button onClick={()=>{

@@ -1,133 +1,160 @@
-import * as React from 'react';
-import Paper from '@mui/material/Paper';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
-import { managerAreaArr } from '../data/dummyPaginationArray';
-import IconButton from '@mui/material/IconButton';
-import DoneIcon from '@mui/icons-material/Done';
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import Container from "@mui/material/Container"
+import React from 'react'
+import{Box,Typography, Divider, Checkbox} from '@mui/material'
+import Header from './header'
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import '../CSS/table.css'
 
-const columns = [
-  { id: 'id', label: 'ID', minWidth: 170 },
-  { id: 'location', label: 'Location', minWidth: 100 },
-  {
-    id: 'status',
-    label: 'Status',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toLocaleString('en-US'),
-  },
-  {
-    id: 'date',
-    label: 'Date',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toLocaleString('en-US'),
-  },
-  {
-    id: 'time',
-    label: 'Time',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toFixed(2),
-  }
+
+
+function getCurrentDate() {
+  const currentDate = new Date();
+
+  const year = currentDate.getFullYear();
+  const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+  const day = String(currentDate.getDate()).padStart(2, '0');
+
+  return `${year}-${month}-${day}`;
+}
+
+
+
+function createData(name, trackingId, date, status) {
+  return { name, trackingId, date, status };
+}
+
+const rows = [
+  createData("Vijay", 18908424, "2 March 2022", "Completed"),
+  createData("Talwinder", 18908424, "2 March 2022", "Pending"),
+  createData("Yashraj", 18908424, "2 March 2022", "Completed"),
+  createData("Alok", 18908421, "2 March 2022", "Pending"),
+];
+const rows1 = [
+  createData("Vijay", 18908424, getCurrentDate(), "Available"),
+  createData("Talwinder", 18908424, getCurrentDate(), "Occupied"),
+  createData("Yashraj", 18908424, getCurrentDate(), "Available"),
+  createData("Alok", 18908421, getCurrentDate(), "Available"),
 ];
 
 
 
-const AreaListPaginationComponent=()=> {
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+const makeStyle1 = (status) => {
+  if (status === 'Occupied') {
+    return {
+      background: '#ffadad8f',
+      color: 'red',
+    };
+  } else {
+    return {
+      background: 'rgb(145 254 159 / 47%)',
+      color: 'green',
+    };
+  }
+};
 
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
-
+const paginationComponet = () => {
   return (
-    // <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-    <div className='areaListWrapper'>
-    <Container className='paginationContainer' >
-      {/* <Box> */}
-
-      <TableContainer sx={{ maxHeight: 800 }}>
-        <Table stickyHeader aria-label="sticky table">
-          <TableHead>
-            <TableRow>
-              {columns.map((column) => (
-                <TableCell
-                key={column.id}
-                align={column.align}
-                style={{ minWidth: column.minWidth }}
+    <Box>
+     <Header title={"Manage Area Section"} subtitle={"A comprehensive waty to visualise solution"}/>
+     <Box>
+          <div className="Table">
+          <h3>Allotment of Disruptions</h3>
+          <Divider sx={{  my: 1.5,
+          typography: "overline",
+          color: "text.disabled",
+          height:"10px",
+          "&::before,::after": { borderTopStyle: "dashed" },}}/>
+        <TableContainer
+          component={Paper }
+          style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
+        >
+          <Table sx={{ minWidth: 650  }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+               
+                <TableCell align="left">Select</TableCell>
+                <TableCell>Name</TableCell>
+                <TableCell align="left">Contractor ID</TableCell>
+                <TableCell align="left">Date</TableCell>
+                <TableCell align="left">Availabilty-Status</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody style={{ color: "white" }}>
+              {rows1.map((row) => (
+                <TableRow
+                  key={row.name}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
-                  {column.label}
-                </TableCell>
-              ))}
-               <TableCell
-                  key={'action'}
-                  align={'right'}
-                  style={{ minWidth: 170 }}
-                  >
-                  Action
-                </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {managerAreaArr
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
-                return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                    {columns.map((column) => {
-                      const value = row[column.id];
-                      return (
-                        <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === 'number'
-                            ? column.format(value)
-                            : value}
-                        </TableCell>
-                      );
-                    })}
-                    <TableCell key='action' align={'right'}>
-                    <IconButton className='areaListButton'><DoneIcon fontSize="medium"/></IconButton>
-                    <IconButton className='areaListButton'><RemoveRedEyeIcon fontSize="medium"/></IconButton>
-                    <IconButton className='areaListButton'><DeleteOutlineIcon fontSize="medium"/></IconButton>
+                  <TableCell padding="checkbox">
+                      <Checkbox />
                     </TableCell>
-                  </TableRow>
-                );
-            })}
-          </TableBody>
-        </Table>
-      </TableContainer>
-  {/* </Box> */}
-  </Container>
-        <div className='paginationTab'>
-      <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
-        component="div"
-        count={managerAreaArr.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-        style={{
-          marginLeft:"19px"
-        }}
-        />
-        </div>
-  </div>
-        // </Paper>
-  );
+                  <TableCell component="th" scope="row">
+                    {row.name}
+                  </TableCell>
+                  <TableCell align="left">{row.trackingId}</TableCell>
+                  <TableCell align="left">{row.date}</TableCell>
+                  <TableCell align="left">
+                  <span className="status" style={makeStyle1(row.status)}>{row.status}</span>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </div>
+          </Box>
+{/* Allotment section */}
+   
+{/* Observation section */}
+
+          <Box>
+          <div className="Table">
+          <h3>Recent Disruptions</h3>
+          <Divider sx={{  my: 1.5,
+          typography: "overline",
+          color: "text.disabled",
+          "&::before,::after": { borderTopStyle: "dashed" },}}/>
+        <TableContainer
+          component={Paper}
+          style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
+        >
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Name</TableCell>
+                <TableCell align="left">Contractor ID</TableCell>
+                <TableCell align="left">Date</TableCell>
+                <TableCell align="left"></TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody style={{ color: "white" }}>
+              {rows.map((row) => (
+                <TableRow
+                  key={row.name}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.name}
+                  </TableCell>
+                  <TableCell align="left">{row.trackingId}</TableCell>
+                  <TableCell align="left">{row.date}</TableCell>
+                  <TableCell align="left" className="Details">Details</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </div>
+          </Box>
+   </Box>
+
+  )
 }
-export default AreaListPaginationComponent
+
+export default paginationComponet
+

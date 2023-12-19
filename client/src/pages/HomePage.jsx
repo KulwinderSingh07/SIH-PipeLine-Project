@@ -86,7 +86,7 @@ function ResponsiveDrawer(props) {
 
       <Divider />
       <List>
-        {['Dashboard', 'Manage Areas', 'Alerts', 'Area Profile','Calendar'].map((text, index) => (
+        {['Dashboard', 'Manage Areas', 'Calendar', 'Area Profile','Alerts'].map((text, index) => (
           <ListItem sx={{p:1.5 , color:textColor,
             ":hover": {
             bgcolor: "#F8F8F8",
@@ -99,9 +99,9 @@ function ResponsiveDrawer(props) {
               <ListItemIcon sx={{ml:"1.2vw"}}>
                 {index === 0 ? <HomeIcon sx={{color:'black'}}/>:<></>}
                 {index === 1 ? <LocationOnIcon sx={{color:'black'}}/>:<></>}
-                {index === 2 ? <SdCardAlertIcon sx={{color:'black'}}/>:<></>}
+                {index === 2 ? <CalendarMonthIcon sx={{color:'black'}}/>:<></>}
                 {index === 3 ? <ShareLocationIcon sx={{color:'black'}}/>:<></>}
-                {index === 4 ? <CalendarMonthIcon sx={{color:'black'}}/>:<></>}
+                {index === 4 ? <SdCardAlertIcon sx={{color:'black'}}/>:<></>}
               </ListItemIcon>
               <ListItemText  primaryTypographyProps={{fontSize: '18px'}} sx={{pt:'2px'}} primary={text} />
             </ListItemButton>

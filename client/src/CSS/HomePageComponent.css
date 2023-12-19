@@ -1,5 +1,5 @@
 .mainHomePageCompDiv{
-    border-style: solid;
+    /* border-style: solid; */
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -22,7 +22,7 @@
 }
 
 .homePageDivTopSubUnitOne{
-    border-style: solid;
+    /* border-style: solid; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -31,7 +31,7 @@
 
 .homePageDivTopSubUnitTwo{
     padding: 15px;
-    border-style: solid;
+    /* border-style: solid; */
     display: flex;
     justify-content:space-between;
     flex-direction: row;
@@ -50,7 +50,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    border-style: solid;
+    /* border-style: solid; */
     padding: 10px;
     margin: 10px;
     border: none;
@@ -81,7 +81,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    border-style: solid;
+    /* border-style: solid; */
     padding: 10px;
     margin: 10px;
     /* max-height: 50%;  */
@@ -100,7 +100,7 @@
     flex-direction: column;
     justify-content: center;
     align-items:flex-start;
-    border-style: solid;
+    /* border-style: solid; */
     padding: 10px;
     margin: 10px;
     height: 100%;

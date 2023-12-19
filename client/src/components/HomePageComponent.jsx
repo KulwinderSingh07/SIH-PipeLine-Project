@@ -89,9 +89,9 @@ const HomePageComponent = () => {
                 <MapComponent pipeJuctionArr={pipeJuctionArr} anomalityDataArr={anomalityDataArr} />
             </div>
         </div>
-        <button onClick={()=>{
-          addDataToGraph()
-        }}>Add Data</button>
+        {/* <button onClick={()=>{ */}
+          {/* addDataToGraph() */}
+        {/* }}>Add Data</button> */}
     </div>
   )
 }

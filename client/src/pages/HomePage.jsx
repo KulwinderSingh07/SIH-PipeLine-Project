@@ -32,6 +32,7 @@ import PersonImage from '../assets/randperson.png';
 import HomePageComponent from '../components/HomePageComponent';
 import AreaDashBoardPage from '../components/areaDashBoard';
 import Calendar from '../components/CalendarPage';
+import Alerts from '../components/Alerts';
 const drawerWidth = 300;
 
 //color for doctor sidebar header
@@ -126,12 +127,8 @@ function ResponsiveDrawer(props) {
             return <AreaDashBoardPage/>
         case 'Calendar':
             return <Calendar/>
-        case 'Appointments':
-            // return <Appointments/>
-        case 'Emergency':
-            // return <Emergency/>
-        case 'Logout':
-            // return <Logout/>
+        case 'Alerts':
+             return <Alerts/>
         default:
             // return <Dashboard/>
     }

@@ -4,6 +4,8 @@ import HomePage from './pages/HomePage';
 import AreaDashBoardPage from './components/areaDashBoard';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
+import Alerts from './components/Alerts';
+
 
 
 function App() {
@@ -11,10 +13,13 @@ function App() {
     <div className="App">
       <Routes>
       <Route exact path='/' element={<HomePage/>}/>
+      <Route exact path='/alerts' element={<Alerts/>}/>
       <Route exact path='/AreaDashBoard' element={<AreaDashBoardPage/>}/>
       <Route exact path='/auth/login' element={<Login/>}/>
       <Route exact path='/auth/register' element={<Register/>}/>
+  
       </Routes>
+      
     </div>
   );
 }

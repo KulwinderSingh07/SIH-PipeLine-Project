@@ -9,6 +9,7 @@ import AreaSearchSelector from './areaSearchSelector'
 import SelectedAreaStateToggle from './selectedAreaStateTogglers'
 import {Areas}  from '../data/dummyAreaArray'
 import LocationDrop from './locationreal'
+import Header from './header'
 
 
 
@@ -108,6 +109,8 @@ const HomePageComponent = () => {
       }
       setGraphData(dataDemo)
     }
+
+    let date = Date();
   
     useEffect(()=>{ 
       console.log(Areas)
@@ -118,8 +121,9 @@ const HomePageComponent = () => {
         <div className='homePageDivTop'>
             <div className='homePageDivTopSubUnitOne'>
               <div className='homePageDivTopSubUnitOneLeft'>
-                <p style={{fontSize:'30px',fontWeight:'500'}}>Welcome,</p>
-                <p style={{fontSize:'15px'}}>Sunday 29th October, 2023</p>
+        <Header title={'Dashboard'} subtitle={date.toString()}/>
+                {/* <p style={{fontSize:'30px',fontWeight:'500'}}>Welcome,</p> */}
+                {/* <p style={{fontSize:'15px'}}>Sunday 29th October, 2023</p> */}
               </div>
               <div className='homePageDivTopSubUnitOneRight'>
                 <div className='homePageDivTopSubUnitOneRightUpper'>

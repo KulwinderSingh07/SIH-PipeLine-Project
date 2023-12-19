@@ -87,7 +87,7 @@ function ResponsiveDrawer(props) {
 
       <Divider />
       <List>
-        {['Dashboard', 'Manage Areas', 'Calendar', 'Area Profile','Alerts'].map((text, index) => (
+        {['Dashboard', 'Manage Areas', 'Calendar','Alerts'].map((text, index) => (
           <ListItem sx={{p:1.5 , color:textColor,
             ":hover": {
             bgcolor: "#F8F8F8",
@@ -145,7 +145,7 @@ function ResponsiveDrawer(props) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar
+      {/* <AppBar
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
@@ -156,7 +156,7 @@ function ResponsiveDrawer(props) {
       <div className='headSection'>
         <h2>{headerText} Section</h2>
       </div>
-      </AppBar>
+      </AppBar> */}
 
       {/*This  Box below has Drawer/SideBar*/}
       <Box
@@ -196,7 +196,7 @@ function ResponsiveDrawer(props) {
         component="main"
         sx={{minHeight:'100vh',bgcolor:'#eaf2fb', flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
-        <Toolbar /> {/*This is a dummy toolbar just for gapping */}
+        {/* <Toolbar /> This is a dummy toolbar just for gapping */}
         
         {/*Render the content here below  depending upon the selected sidebar option*/}
           

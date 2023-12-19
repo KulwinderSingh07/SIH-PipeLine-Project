@@ -1,47 +1,65 @@
 [
     {
-        "node_name": "junction_1",
+        "junctionName": "junction_1",
         "selected": false,
+        "water_quality_index":12,
+        "issued_pending":2,
+        "issued_resolved":12,
         "coordinates": [
             30.35181200314026,
             76.36128692884307
         ]
     },
     {
-        "node_name": "junction_2",
+        "junctionName": "junction_2",
         "selected": false,
+        "water_quality_index":34,
+        "issued_pending":6,
+        "issued_resolved":24,
         "coordinates": [
             30.35384860743729,
             76.36246728687428
         ]
     },
     {
-        "node_name": "junction_3",
+        "junctionName": "junction_3",
         "selected": false,
+        "water_quality_index":23,
+        "issued_pending":5,
+        "issued_resolved":17,
         "coordinates": [
             30.352374433335836,
             76.36521068935289
         ]
     },
     {
-        "node_name": "junction_4",
+        "junctionName": "junction_4",
         "selected": false,
+        "water_quality_index":67,
+        "issued_pending":3,
+        "issued_resolved":10,
         "coordinates": [
             30.354355854397433,
             76.36493820664604
         ]
     },
     {
-        "node_name": "junction_5",
+        "junctionName": "junction_5",
         "selected": false,
+        "water_quality_index":67,
+        "issued_pending":9,
+        "issued_resolved":16,
         "coordinates": [
             30.354126421400878,
             76.36997429683603
         ]
     },
     {
-        "node_name": "junction_6",
+        "junctionName": "junction_6",
         "selected": false,
+        "water_quality_index":55,
+        "issued_pending":7,
+        "issued_resolved":27,
         "coordinates": [
             30.354396342478843,
             76.37167124029875

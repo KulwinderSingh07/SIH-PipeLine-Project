@@ -10,15 +10,16 @@ const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 
   const AreaSearchSelector=({setSelectedArea,selectedArea})=> {
+    console.log(selectedArea)
     const handleOnChange = (event, value) => {
       selectedArea.forEach(element => {
-        if(element.selected==true){
-          element.selected=false
+        if(element.checkBoxSelected==true){
+          element.checkBoxSelected=false
         }
       });
       if(value!=null){
         let currentlySelectedArea=value
-        currentlySelectedArea.selected=true
+        currentlySelectedArea.checkBoxSelected=true
         console.log(value)
         const sortedOptions = [currentlySelectedArea, ...selectedArea.filter(option => option!=value)];
         console.log(sortedOptions)
@@ -26,7 +27,7 @@ const checkedIcon = <CheckBoxIcon fontSize="small" />;
       }
       };
       useEffect(()=>{
-        selectedArea[0].selected=true
+        selectedArea[0].checkBoxSelected=true
         setSelectedArea(selectedArea)
       },[])
   return (
@@ -34,7 +35,7 @@ const checkedIcon = <CheckBoxIcon fontSize="small" />;
       id="checkboxes-tags-demo"
       className='areaSearchSelector'
       options={selectedArea}
-      getOptionLabel={(selectedArea) => selectedArea.name}
+      getOptionLabel={(selectedArea) => selectedArea.junctionName}
       onChange={handleOnChange}
       value={selectedArea[0]}
       renderOption={(props, selectedArea, { selected }) => (
@@ -43,11 +44,11 @@ const checkedIcon = <CheckBoxIcon fontSize="small" />;
             icon={icon}
             checkedIcon={checkedIcon}
             // style={{ marginRight: 8 }}
-            checked={selectedArea.selected}
+            checked={selectedArea.checkBoxSelected}
             className='areaSearchSelectorCheckBox'
             size='small'
           />}
-          {selectedArea.name?selectedArea.name:""}
+          {selectedArea.junctionName?selectedArea.junctionName:""}
         </li>
       )}
       // style={{ width: 500 }}

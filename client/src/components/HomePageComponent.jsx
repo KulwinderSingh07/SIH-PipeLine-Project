@@ -35,7 +35,19 @@ const HomePageComponent = () => {
       const finalResult = data.data.allSelected;
       
       setpipeJuctionArr(finalResult);
-      console.log(pipeJuctionArr)
+
+      const selectedAreadata=await axios.get("http://localhost:4000/junction/getSelectedJunctions")
+      console.log(selectedAreadata.data.selectedJunctions)
+      for(let index in selectedAreadata.data.selectedJunctions){
+        if(index==0){
+          selectedAreadata.data.selectedJunctions[index].checkBoxSelected=true
+        }else{
+          selectedAreadata.data.selectedJunctions[index].checkBoxSelected=false
+        }
+      }
+      setSelectedArea(selectedAreadata.data.selectedJunctions)
+
+      console.log(selectedAreadata.data.selectedJunctions)
     }
 
     
@@ -112,10 +124,10 @@ const HomePageComponent = () => {
               </div>
             </div>
             <div className='homePageDivTopSubUnitTwo'>
-                <DataCard selectedArea={selectedArea}/>
-                <DataCard selectedArea={selectedArea}/>
-                <DataCard selectedArea={selectedArea}/>
-                <DataCard selectedArea={selectedArea}/>
+                <DataCard selectedArea={selectedArea} selector={1}/>
+                <DataCard selectedArea={selectedArea} selector={2}/>
+                <DataCard selectedArea={selectedArea} selector={3}/>
+                <DataCard selectedArea={selectedArea} selector={4}/>
             </div>
         </div>
         <div className='homePageDivBottom'>

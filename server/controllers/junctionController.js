@@ -4,4 +4,12 @@ const fetchAllJunctions=async(req,res)=>{
     const Alljunctions=await junctionModel.find()
     res.json(Alljunctions)
 }
-module.exports={fetchAllJunctions}
+
+const fetchSelectedJunctions=async(req,res)=>{
+    const selectedJunctions=await junctionModel.find({selected:true
+    })
+    res.json({
+        selectedJunctions:selectedJunctions
+    })
+}
+module.exports={fetchAllJunctions,fetchSelectedJunctions}

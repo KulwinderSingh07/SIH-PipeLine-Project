@@ -11,6 +11,15 @@ const junctionSchema = new mongoose.Schema({
     coordinates:{
     required:true,
     type:[Number]
+    },
+    issues_pending:{
+        type:Number
+    },
+    isuues_resolved:{
+        type:Number   
+    },
+    water_quality_index:{
+        type:Number
     }
 })
 

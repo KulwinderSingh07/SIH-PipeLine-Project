@@ -29,7 +29,7 @@ const updateBoxes = async(req,res)=>{
     }else if(stageName == "stageTwo"){
         if(findData.stageTwo==false){
             findData.stageTwo = true;
-            findDataTwo.stageTwo = false;
+            findDataTwo.stageTwo = true;
 
             findData.currentProgressPercent += 20;
             findDataTwo.progressBar += 20;

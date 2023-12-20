@@ -1,5 +1,5 @@
 import React from 'react'
-import{Box,Typography, Divider, Checkbox} from '@mui/material'
+import{Box,Typography, Divider, Checkbox, LinearProgress} from '@mui/material'
 import Header from './header'
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -9,8 +9,11 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import '../CSS/table.css'
-
-
+import Toolbar from '@mui/material/Toolbar';
+import Tick from '../assets/tick.png';
+import Tick3d from '../assets/tick_3d.png';
+import Cross3d from '../assets/cross_3d.png';
+import ProgressBar from "@ramonak/react-progress-bar";
 
 function getCurrentDate() {
   const currentDate = new Date();
@@ -24,21 +27,21 @@ function getCurrentDate() {
 
 
 
-function createData(name, trackingId, date, status) {
-  return { name, trackingId, date, status };
+function createData(name, trackingId,issueType, date, status,stageOne,stageTwo,stageThree,stageFour,stageFive,percent) {
+  return { name, trackingId,issueType, date, status,stageOne,stageTwo,stageThree,stageFour,stageFive,percent};
 }
 
 const rows = [
-  createData("Vijay", 18908424, "2 March 2022", "Completed"),
-  createData("Talwinder", 18908424, "2 March 2022", "Pending"),
-  createData("Yashraj", 18908424, "2 March 2022", "Completed"),
-  createData("Alok", 18908421, "2 March 2022", "Pending"),
+  createData("Vijay", 18908424,"Clogging", "2 March 2022, 5:30 PM", "Completed"),
+  createData("Talwinder", 18908424,"PipeBreak", "2 March 2022, 5:45 PM", "Pending"),
+  createData("Yashraj", 18908424,"PipeBreak", "2 March 2022, 6:00 PM", "Completed"),
+  createData("Maulik", 18908421,"Water Qiality", "2 March 2022, 6:30 PM", "Pending"),
 ];
 const rows1 = [
-  createData("Vijay", 18908424, getCurrentDate(), "Available"),
-  createData("Talwinder", 18908424, getCurrentDate(), "Occupied"),
-  createData("Yashraj", 18908424, getCurrentDate(), "Available"),
-  createData("Alok", 18908421, getCurrentDate(), "Available"),
+  createData("Vijay", 18908424,"Clogging","2 March 2022, 5:30 PM", "Available",true,false,false,false,false,20),
+  // createData("Talwinder", 18908424, getCurrentDate(), "Occupied"),
+  createData("Yashraj", 18908424,"PipeBreak","2 March 2022, 5:45 PM", "Available",true,true,true,false,false,60),
+  createData("Alok", 18908421,"Water Quality","2 March 2022, 6:00 PM", "Available",true,true,true,true,false,80),
 ];
 
 
@@ -63,7 +66,7 @@ const paginationComponet = () => {
      <Header title={"Manage Area Section"} subtitle={"A comprehensive waty to visualise solution"}/>
      <Box>
           <div className="Table">
-          <h3>Allotment of Disruptions</h3>
+          <h3 style={{marginBottom:'-17px'}}>Supervisor Allotment</h3>
           <Divider sx={{  my: 1.5,
           typography: "overline",
           color: "text.disabled",
@@ -77,11 +80,12 @@ const paginationComponet = () => {
             <TableHead>
               <TableRow>
                
-                <TableCell align="left">Select</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell align="left">Contractor ID</TableCell>
-                <TableCell align="left">Date</TableCell>
-                <TableCell align="left">Availabilty-Status</TableCell>
+                <TableCell sx={{width:'200px'}} align="center">Select Supervisor</TableCell>
+                <TableCell align="center">Supervisor Name</TableCell>
+                <TableCell align="center">Issue ID</TableCell>
+                <TableCell align="center">Issue Type</TableCell>
+                <TableCell align="center">Issue Occurence</TableCell>
+                <TableCell align="center">Availabilty-Status</TableCell>
               </TableRow>
             </TableHead>
             <TableBody style={{ color: "white" }}>
@@ -90,15 +94,16 @@ const paginationComponet = () => {
                   key={row.name}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
-                  <TableCell padding="checkbox">
-                      <Checkbox />
+                  <TableCell sx={{display:'flex',justifyContent:'center',flexDirection:'row',alignItems:'center'}}>
+                      <div style={{padding:'10px'}} className='allocateIssueDiv'><img src={Tick} style={{height:'25px'}}/><p style={{marginTop:'-26.5px',marginLeft:'35px'}}>Allocate Issue</p></div>
                     </TableCell>
-                  <TableCell component="th" scope="row">
+                  <TableCell align='center' component="th" scope="row">
                     {row.name}
                   </TableCell>
-                  <TableCell align="left">{row.trackingId}</TableCell>
-                  <TableCell align="left">{row.date}</TableCell>
-                  <TableCell align="left">
+                  <TableCell align="center">{row.trackingId}</TableCell>
+                  <TableCell align="center">{row.issueType}</TableCell>
+                <TableCell align="center">{row.date}</TableCell>
+                  <TableCell align="center">
                   <span className="status" style={makeStyle1(row.status)}>{row.status}</span>
                   </TableCell>
                 </TableRow>
@@ -112,9 +117,11 @@ const paginationComponet = () => {
    
 {/* Observation section */}
 
+          <Toolbar/> {/*Dummy toolbar for representing the gap between top to bottom */}
+
           <Box>
           <div className="Table">
-          <h3>Recent Disruptions</h3>
+          <h3 style={{marginBottom:'-8px'}}>Progress Tracking</h3>
           <Divider sx={{  my: 1.5,
           typography: "overline",
           color: "text.disabled",
@@ -126,24 +133,35 @@ const paginationComponet = () => {
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell>Name</TableCell>
-                <TableCell align="left">Contractor ID</TableCell>
-                <TableCell align="left">Date</TableCell>
-                <TableCell align="left"></TableCell>
+                <TableCell align="center">Supervisor Name</TableCell>
+                <TableCell align="center">Assigned Issue ID</TableCell>
+                <TableCell align="center">Assignment Date And Time</TableCell>
+                <TableCell align="center">Stage-1 (Pipeline Anomaly Verified)</TableCell>
+                <TableCell align="center">Stage-2 (Workers Assigned)</TableCell>
+                <TableCell align="center">Stage-3 (Work In Progress)</TableCell>
+                <TableCell align="center">Stage-4 (Report Work Completion)</TableCell>
+                <TableCell align="center">Stage-5 (CrossCheck Pipeline Health)</TableCell>
+                <TableCell align="center">Progress Bar</TableCell>
+
               </TableRow>
             </TableHead>
             <TableBody style={{ color: "white" }}>
-              {rows.map((row) => (
+              {rows1.map((row) => (
                 <TableRow
                   key={row.name}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
-                  <TableCell component="th" scope="row">
+                  <TableCell align="center" component="th" scope="row">
                     {row.name}
                   </TableCell>
-                  <TableCell align="left">{row.trackingId}</TableCell>
-                  <TableCell align="left">{row.date}</TableCell>
-                  <TableCell align="left" className="Details">Details</TableCell>
+                  <TableCell align="center">{row.trackingId}</TableCell>
+                  <TableCell align="center">{row.date}</TableCell>
+                  <TableCell align="center">{row.stageOne == true ? <img style={{height:'20px'}} src={Tick3d}/>:<img style={{height:'20px'}} src={Cross3d}/>}</TableCell>
+                  <TableCell align="center">{row.stageTwo == true ? <img style={{height:'20px'}} src={Tick3d}/>:<img style={{height:'20px'}} src={Cross3d}/>}</TableCell>
+                  <TableCell align="center">{row.stageThree == true ? <img style={{height:'20px'}} src={Tick3d}/>:<img style={{height:'20px'}} src={Cross3d}/>}</TableCell>
+                  <TableCell align="center">{row.stageFour == true ? <img style={{height:'20px'}} src={Tick3d}/>:<img style={{height:'20px'}} src={Cross3d}/>}</TableCell>
+                  <TableCell align="center">{row.stageFive == true ? <img style={{height:'20px'}} src={Tick3d}/>:<img style={{height:'20px'}} src={Cross3d}/>}</TableCell>
+                  <TableCell align="center">{<progress value={row.percent} max={100} />}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

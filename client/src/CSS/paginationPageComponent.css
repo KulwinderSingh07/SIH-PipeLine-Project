@@ -17,3 +17,21 @@
     justify-content: center;
     width: 100%;
 }
+
+.allocateIssueButton{
+    padding: 13px;
+    border-radius: 10px;
+    border-style: none;
+}
+
+.allocateIssueDiv{
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    transition: all 0.1s ease-in-out;
+}
+
+.allocateIssueDiv:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}

@@ -5,7 +5,6 @@ const {Server} = require('socket.io');
 const cors = require('cors');
 
 const server = http.createServer(app);
-const io = new Server(server);
 
 
 //Middlewares
@@ -15,6 +14,23 @@ app.use(cors({
     methods:["GET","POST","DELETE"],
     credentials:true
 }));
+
+const io = new Server(server,{
+    cors:{
+        origin:"http://localhost:3000",
+        methods:["GET","POST","DELETE"]
+    }
+});
+
+io.on("connection",(socket)=>{
+    socket.on("send_message",async(data)=>{
+        //delay 
+        await new Promise(resolve => setTimeout(resolve,10000));
+
+        socket.emit("send_message",data);
+    })
+})
+
 
 
 //connection to db

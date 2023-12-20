@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,9 +13,9 @@ import { Line } from 'react-chartjs-2';
 import axios from "axios"
 import "../CSS/graph.css"
 import BasicSelect from './selectionCompoentforHostelGraph';
-// import io from 'socket.io-client';
+import io from 'socket.io-client';
 
-// const socket = io('http://localhost:4000');
+const socket = io('http://localhost:4000');
 
 ChartJS.register(
   CategoryScale,
@@ -47,6 +47,8 @@ const Analysis=()=> {
 
     const [flowdata, setFlowdata] = useState([])
     const [hostelVal, setHostelVal] = useState("hostel_K")
+    const [labelsArr, setLabelsArr] = useState([])
+    const [dataArr, setDataArr] = useState([])
      const options = {
         responsive: true,
         y:{
@@ -79,10 +81,57 @@ const Analysis=()=> {
 
     }
     const goLive=async()=>{
+        // while(true){
                 const outputdata=await axios.get("http://localhost:8000/api/get_data")
                 console.log(outputdata.data)
-                
+                const newLabVal=new Date()
+                const newDataInput=outputdata.data.flow_rate
+                setLabelsArr([...labelsArr,newLabVal])
+                setDataArr([...dataArr,newDataInput])
+                  const valu={
+                    labels:labelsArr,
+                datasets:[{
+                label: hostelVal,
+                data:dataArr
+                }],
+                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            }
+            setFlowdata(valu)
+            // setTimeout(async() => {
+            //     await goLive()   
+            // }, 3000);
+    // }
+
     }
+
+    const buttonRef = useRef(null);
+
+    // Function to handle the click on the button
+    const handleClick = () => {
+      if (buttonRef.current) {
+        buttonRef.current.click();
+      }
+    };
+  
+    // Set interval on component mount
+    useEffect(() => {
+      const intervalId = setInterval(handleClick, 3000);
+  
+      // Clean up interval on component unmount
+      return () => clearInterval(intervalId);
+    }, []); 
+
+    // useEffect(()=>{
+    //     socket.emit("send_message",{msg:"refetch"});
+    // },[])
+
+    // useEffect(()=>{
+    //     socket.on("send_message",(data)=>{
+    //         goLive();
+    //         socket.emit("send_message",data);
+    //     })
+    // },[socket])
 
     // for using getflowdata
 
@@ -103,7 +152,7 @@ const Analysis=()=> {
     //       socket.disconnect();
     //     };
     //   }, []);
-    
+
   return (
     <div className='GraphWrapper'>
         <div className='GraphHeader'>
@@ -112,10 +161,11 @@ const Analysis=()=> {
             {/* <button onClick={()=>{
                 fetchDataByWeeks()
             }}>Weeks</button> */}
-            <button onClick={()=>{
+            <button id="continueClick" ref={buttonRef} onClick={()=>{
                 goLive()
             }}>Go Live</button>
             </div>
+           
         </div>
   {Object.keys(flowdata).length && <Line options={options} data={flowdata} />}
     </div>

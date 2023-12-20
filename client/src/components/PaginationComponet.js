@@ -115,7 +115,7 @@ const PaginationComponet = () => {
                
                 <TableCell sx={{width:'200px'}} align="center">Select Supervisor</TableCell>
                 <TableCell align="center">Supervisor Name</TableCell>
-                <TableCell align="center">Issue ID</TableCell>
+                <TableCell align="center">Pipe ID</TableCell>
                 <TableCell align="center">Issue Type</TableCell>
                 <TableCell align="center">Issue Occurence</TableCell>
                 <TableCell align="center">Availabilty-Status</TableCell>
@@ -167,7 +167,7 @@ const PaginationComponet = () => {
             <TableHead>
               <TableRow>
                 <TableCell align="center">Supervisor Name</TableCell>
-                <TableCell align="center">Assigned Issue ID</TableCell>
+                <TableCell align="center">Assigned Pipe ID</TableCell>
                 <TableCell align="center">Assignment Date And Time</TableCell>
                 <TableCell align="center">Stage-1 (Pipeline Anomaly Verified)</TableCell>
                 <TableCell align="center">Stage-2 (Workers Assigned)</TableCell>

@@ -15,9 +15,7 @@ import JuncitonIcon from "../assets/junction.png"
 import childNodeIcon from "../assets/childNode.png"
 import TitlebarBelowMasonryImageList from './showVisual'
 import Header from './header'
-
-
-
+import Reservior from '../assets/reservior.png';
 
 const HomePageComponent = () => {
     const [pipeJuctionArr, setpipeJuctionArr] = useState([])
@@ -147,16 +145,38 @@ const HomePageComponent = () => {
             </div>
             <div className='homePageDivBottomRightUnit'>
               <div className='IconWrapper'>
+                <div>
                 <h3 className='mapHeading'>Area Overview</h3>
+                </div>
                 {/* <TitlebarBelowMasonryImageList/> */}
                 <div className='IconList'>
-                <img className="viewIcon" src={JuncitonIcon}></img><span>Junction</span>
-                <img className="viewIcon" src={childNodeIcon}></img><span>Child Nodes</span>
-                <img className="viewIcon" src={anomalityIcon}></img><span>Anomality</span>
-                <div className='pipecontainer'>
-                <div className="pipeRed"></div><span>Junction Connection Pipe</span>
-                <div className="pipeBlue"></div><span>Node Connection Pipe</span>
+
+                  <div className='wrapper1'>
+                  <div style={{display:'flex',flexDirection:'row'}}>
+                  <img className="viewIcon" src={JuncitonIcon}/><p style={{marginLeft:'10px',marginRight:'30px'}}>Junction</p>
+                  </div>
+
+                  <div style={{display:'flex',flexDirection:'row'}}>
+                  <img className="viewIcon" src={childNodeIcon}/><p style={{marginLeft:'10px',marginRight:'50px'}}>Child Nodes</p>
+                  </div>
+
+                  <div style={{display:'flex',flexDirection:'row'}}>
+                  <img className="viewIcon" src={anomalityIcon}/><p style={{marginLeft:'10px'}}>Anomality</p>
+                  </div>
+                  </div>
+                  
+
+                  <div className='pipecontainer'>
+                <div className="pipeRed"></div><span style={{marginLeft:'5px',marginRight:'10px'}}>Junction Connection Pipe</span>
+                <div className="pipeBlue"></div><span style={{marginLeft:'10px',marginRight:'10px'}}>Node Connection Pipe</span>
+                <div className='reserviorSetup'>
+                  <img style={{height:'30px'}} src={Reservior}/>
+                  <p>Reservior</p>
                 </div>
+                </div>
+
+                
+                
                 </div>
               </div>
                 <MapComponent pipeJuctionArr={pipeJuctionArr} anomalityDataArr={anomalityDataArr} inputIntoGraph={inputIntoGraph}

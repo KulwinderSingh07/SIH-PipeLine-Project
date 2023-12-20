@@ -26,8 +26,14 @@ const HomePageComponent = () => {
     const [markerChildNodeArr, setMarkerChildNodeArr] = useState([])
     const [centerMap, setCenterMap] = useState([30.3564, 76.3647])
 
-    const date=Date.now()
+    function getDate(){
+      const today = new Date();
+      const month = today.getMonth();
+      const year = today.getFullYear();
+      const date = today.getDate();
 
+      return `${date} / ${month} / ${year}`
+    }
 
     // fetchind data to display at the map
     const fetchMapData = async()=>{
@@ -114,7 +120,7 @@ const HomePageComponent = () => {
         <div className='homePageDivTop'>
             <div className='homePageDivTopSubUnitOne'>
               <div className='homePageDivTopSubUnitOneLeft'>
-        <Header title={'Dashboard'} subtitle={date.toString()}/>
+        <Header title={'Dashboard'} subtitle={getDate()}/>
                 {/* <p style={{fontSize:'30px',fontWeight:'500'}}>Welcome,</p> */}
                 {/* <p style={{fontSize:'15px'}}>Sunday 29th October, 2023</p> */}
               </div>

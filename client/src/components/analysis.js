@@ -46,9 +46,12 @@ export const data = {
 const Analysis=()=> {
 
     const [flowdata, setFlowdata] = useState([])
+    const [powerdata, setPowerdata] = useState([])
     const [hostelVal, setHostelVal] = useState("hostel_K")
     const [labelsArr, setLabelsArr] = useState([])
     const [dataArr, setDataArr] = useState([])
+    const [powerlabArr, setPowerLabArr] = useState([])
+    const [powerdataArr, setPowerDataArr] = useState([])
      const options = {
         responsive: true,
         y:{
@@ -101,6 +104,27 @@ const Analysis=()=> {
             // setTimeout(async() => {
             //     await goLive()   
             // }, 3000);
+    // }
+
+    }
+    const goPower=async()=>{
+        // while(true){
+                const outputdata=await axios.get("http://localhost:3001/api/getPressure_data")
+                console.log(outputdata.data)
+                const newLabVal=new Date()
+                const newDataInput=outputdata.data.pressure
+                setPowerLabArr([...powerlabArr,newLabVal])
+                setPowerDataArr([...powerdataArr,newDataInput])
+                  const valu={
+                    labels:powerlabArr,
+                datasets:[{
+                label: hostelVal,
+                data:powerdataArr
+                }],
+                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            }
+            setPowerdata(valu)
     // }
 
     }
@@ -163,11 +187,14 @@ const Analysis=()=> {
             }}>Weeks</button> */}
             <button id="continueClick" ref={buttonRef} onClick={()=>{
                 goLive()
+                goPower()
             }}>Go Live</button>
             </div>
-           
         </div>
+  <h2>Flow Real time and Analytics</h2>
   {Object.keys(flowdata).length && <Line options={options} data={flowdata} />}
+  <h2>Pressure Real time and Analytics</h2>
+  {Object.keys(powerdata).length && <Line options={options} data={powerdata} />}
     </div>
   )
 }

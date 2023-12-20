@@ -1,0 +1,23 @@
+.GraphWrapper{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.GraphHeader{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.GraphHeader button{
+    padding: 0.8rem;
+    margin-left: 20px;
+    border-radius: 1rem;
+    font-weight: bolder;
+    background-color:#3498db;
+    color: white;
+    font-size: large;
+    cursor: pointer;
+}   
+.GraphHeader button:hover{
+   z-index: 10;
+}

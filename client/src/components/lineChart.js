@@ -58,3 +58,5 @@ const LineChartComponent = ({graphDataToDisplay}) => {
 }
 
 export default LineChartComponent;
+
+

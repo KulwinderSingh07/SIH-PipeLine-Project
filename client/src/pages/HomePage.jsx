@@ -33,6 +33,7 @@ import HomePageComponent from '../components/HomePageComponent';
 import AreaDashBoardPage from '../components/areaDashBoard';
 import Calendar from '../components/CalendarPage';
 import Alerts from '../components/Alerts';
+import AnalysisCompoent from '../components/analysis';
 const drawerWidth = 300;
 
 //color for doctor sidebar header
@@ -87,7 +88,7 @@ function ResponsiveDrawer(props) {
 
       <Divider />
       <List>
-        {['Dashboard', 'Manage Areas', 'Calendar','Alerts'].map((text, index) => (
+        {['Dashboard', 'Manage Areas', 'Calendar','Alerts','Analysis'].map((text, index) => (
           <ListItem sx={{p:1.5 , color:textColor,
             ":hover": {
             bgcolor: "#F8F8F8",
@@ -103,6 +104,7 @@ function ResponsiveDrawer(props) {
                 {index === 2 ? <CalendarMonthIcon sx={{color:'black'}}/>:<></>}
                 {index === 3 ? <ShareLocationIcon sx={{color:'black'}}/>:<></>}
                 {index === 4 ? <SdCardAlertIcon sx={{color:'black'}}/>:<></>}
+                {index === 5 ? <SdCardAlertIcon sx={{color:'black'}}/>:<></>}
               </ListItemIcon>
               <ListItemText  primaryTypographyProps={{fontSize: '18px'}} sx={{pt:'2px'}} primary={text} />
             </ListItemButton>
@@ -129,6 +131,8 @@ function ResponsiveDrawer(props) {
             return <Calendar/>
         case 'Alerts':
              return <Alerts/>
+        case 'Analysis':
+             return <AnalysisCompoent/>
         default:
             // return <Dashboard/>
     }

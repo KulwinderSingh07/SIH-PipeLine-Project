@@ -60,6 +60,7 @@ const MapComponent = ({ pipeJuctionArr ,anomalityDataArr,inputIntoGraph,markerJu
           center={centerMap}
           zoom={15}
           scrollWheelZoom={false}
+        
         >
           <TileLayer    
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

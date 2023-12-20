@@ -82,27 +82,27 @@ const HomePageComponent = () => {
     }
 
     const inputIntoGraph=async(junctionName)=>{
-      console.log(graphDataToDisplay)
-      let index=graphDataToDisplay.findIndex(val=>val.junctionName==junctionName)
-      console.log(index)
-      if(index==-1){
+      // console.log(graphDataToDisplay)
+      // let index=graphDataToDisplay.findIndex(val=>val.junctionName==junctionName)
+      // console.log(index)
+      // if(index==-1){
       const graphInput=await axios.post("http://localhost:4000/pipeflow/getPipeFlow",{
         junctionName:junctionName})
         console.log(graphInput)
-        console.log(graphInput.data.flowdata)
+        // console.log(graphInput.data.flowdata)
         // const dataPropForLineChart=await constructNewLineGraphDataSet(graphInput.data.flowdata,junctionName)
         // console.log(dataPropForLineChart)
-        setGraphDataToDisplay([...graphDataToDisplay,graphInput.data.flowdata])
+        // setGraphDataToDisplay([...graphDataToDisplay,graphInput.data.flowdata])
         // setGraphDataToDisplay(graphInput.data.flowdata)
 
       // console.log(dataPropForLineChart,junctionName) 
-    }else{
-      console.log("chal reah")
-    const newJunctionDataArr=graphDataToDisplay.map((junction=>{
-      return junction.junctionName!=junctionName
-    }))
-    setGraphDataToDisplay(newJunctionDataArr)
-  }
+  //   }else{
+  //     console.log("chal reah")
+  //   const newJunctionDataArr=graphDataToDisplay.map((junction=>{
+  //     return junction.junctionName!=junctionName
+  //   }))
+  //   setGraphDataToDisplay(newJunctionDataArr)
+  // }
 }
   
     useEffect(()=>{ 

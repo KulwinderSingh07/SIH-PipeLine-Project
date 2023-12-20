@@ -1,7 +1,7 @@
 .GraphWrapper{
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 200vh;
 }
 .GraphHeader{
     display: flex;
@@ -20,4 +20,9 @@
 }   
 .GraphHeader button:hover{
    z-index: 10;
+}
+.headerLive{
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    
 }

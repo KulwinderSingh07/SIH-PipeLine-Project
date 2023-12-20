@@ -30,6 +30,11 @@ const MapComponent = ({ pipeJuctionArr ,anomalityDataArr,inputIntoGraph,markerJu
        iconUrl:require("../assets/childNode.png"),
       iconSize: [25, 25]
         });
+    const  resorviorIcon= new Icon({
+       // Replace with the path to your image
+       iconUrl:require("../assets/reservior.png"),
+      iconSize: [25, 25]
+        });
 
     
     const changePipeMarkerSelector=(pipeIdentifier)=>{
@@ -162,6 +167,26 @@ const MapComponent = ({ pipeJuctionArr ,anomalityDataArr,inputIntoGraph,markerJu
                 )
               })
             }
+            <Marker icon={resorviorIcon} position={[
+        30.353353480462903,
+        76.36541801589863
+      ]}>
+        <Popup>
+                      <div>
+                        <h2>Reservior 1</h2>
+                      </div>
+                      </Popup>
+      </Marker>
+            <Marker icon={resorviorIcon} position={[
+        30.353259209909133,
+        76.37051576383207
+      ]}>
+        <Popup>
+                      <div>
+                        <h2>Reservior 2</h2>
+                      </div>
+                      </Popup>
+      </Marker>
             {
               markerChildNodeArr.length!=0 && markerChildNodeArr.map((childNode)=>{
                 return(

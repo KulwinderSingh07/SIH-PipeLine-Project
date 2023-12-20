@@ -14,6 +14,7 @@ import axios from "axios"
 import "../CSS/graph.css"
 import BasicSelect from './selectionCompoentforHostelGraph';
 import io from 'socket.io-client';
+import Toolbar from '@mui/material/Toolbar';
 
 const socket = io('http://localhost:4000');
 
@@ -64,10 +65,10 @@ const Analysis=()=> {
           legend: {
             position: 'top'
           },
-          title: {
-            display: true,
-            text: 'Chart.js Line Chart',
-          },
+        //   title: {
+        //     display: true,
+        //     text: 'Chart.js Line Chart',
+        //   },
         },
       };
 
@@ -191,9 +192,11 @@ const Analysis=()=> {
             }}>Go Live</button>
             </div>
         </div>
-  <h2>Flow Real time and Analytics</h2>
+  <h2 className='headerLive'>Flow Real time and Analytics</h2>
   {Object.keys(flowdata).length && <Line options={options} data={flowdata} />}
-  <h2>Pressure Real time and Analytics</h2>
+
+  {/* <Toolbar/> */}
+  <h2 className='headerLive'>Pressure Real time and Analytics</h2>
   {Object.keys(powerdata).length && <Line options={options} data={powerdata} />}
     </div>
   )

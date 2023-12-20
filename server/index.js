@@ -23,6 +23,7 @@ const anomalityRouter = require('./routes/anomalityRoute');
 const pipeFlowRoute=require("./routes/pipeFlowRoute")
 const juncitonRoutes=require("./routes/junctionRoute")
 const flutterRouter = require('./routes/flutterRoutes');
+const childNodeRoutes=require("./routes/childNodeRoute")
 
 app.use('/pipeline',pipelineRouter);
 app.use('/location',locationRouter);
@@ -33,6 +34,8 @@ app.use('/anomality',anomalityRouter);
 app.use("/pipeflow",pipeFlowRoute)
 app.use("/junction",juncitonRoutes)
 app.use('/flutter',flutterRouter);
+app.use("/childnode",childNodeRoutes)
+
 
 app.get('/',(req,res)=>{
     return res.send('Backend is running...');

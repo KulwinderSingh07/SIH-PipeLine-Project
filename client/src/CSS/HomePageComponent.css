@@ -157,3 +157,43 @@
 .areaSearchSelectorCheckBox{
     width: fit-content;
 }
+
+
+.IconWrapper{
+    display: flex;
+    flex-direction: row;
+    /* width: 100%; */
+    align-items: center;
+    /* flex-wrap: ; */
+    justify-content: space-between;
+}
+.viewIcon{
+    width: 4%;
+}
+.pipeRed{
+    width: 8%;
+    height: 4px;
+    background-color: red;
+}
+.pipeBlue{
+    width: 10%;
+    height: 2px;
+    background-color: purple;
+}
+.pipecontainer{
+    display: flex;
+}
+/* .pipecontainer{
+    display: flex;
+}
+.IconList{
+    display: flex;
+} */
+/* .iconContainer{
+    display: flex;
+    flex-direction: column;
+}
+.RightSideIcon{
+    display: flex;
+    flex-direction: row;
+} */

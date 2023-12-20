@@ -6,15 +6,15 @@ import {
   MapContainer,
   TileLayer,
   Marker,
-  useMap,
   Popup,
   Polyline,
   Tooltip,
 } from "react-leaflet";
 
-const MapComponent = ({ pipeJuctionArr ,anomalityDataArr,inputIntoGraph,markerJunctionsArr}) => {
+const MapComponent = ({ pipeJuctionArr ,anomalityDataArr,inputIntoGraph,markerJunctionsArr 
+  ,markerChildNodeArr,centerMap
+}) => {
     const [pipeMarkerSelector, setPipeMarkerSelector] = useState("")
-    // const [graphDataToDisplay, setGraphDataToDisplay] = useState([])
     const limeOptions = { color: "blue" };
 
     const customMarkerIcon = new Icon({
@@ -24,6 +24,11 @@ const MapComponent = ({ pipeJuctionArr ,anomalityDataArr,inputIntoGraph,markerJu
     const junctionMarker = new Icon({
       iconUrl:require("../assets/junction.png"), // Replace with the path to your image
       iconSize: [32, 32]
+        });
+    const  childNodeIcon= new Icon({
+       // Replace with the path to your image
+       iconUrl:require("../assets/childNode.png"),
+      iconSize: [25, 25]
         });
 
     
@@ -44,7 +49,6 @@ const MapComponent = ({ pipeJuctionArr ,anomalityDataArr,inputIntoGraph,markerJu
       }
     }
 
- 
 
     useEffect(()=>{
       console.log(pipeJuctionArr);
@@ -53,7 +57,7 @@ const MapComponent = ({ pipeJuctionArr ,anomalityDataArr,inputIntoGraph,markerJu
   return (
     <div className="mapComponetWrapper">
         <MapContainer
-          center={[30.3564, 76.3647]}
+          center={centerMap}
           zoom={15}
           scrollWheelZoom={false}
         >
@@ -123,7 +127,11 @@ const MapComponent = ({ pipeJuctionArr ,anomalityDataArr,inputIntoGraph,markerJu
             })}
             {markerJunctionsArr.length!=0 && markerJunctionsArr.map((junctionObj)=>{
               return(
-                <Marker icon={junctionMarker} position={[junctionObj.coordinates[0],junctionObj.coordinates[1]]}>
+                <Marker icon={junctionMarker} position={[junctionObj.coordinates[0],junctionObj.coordinates[1]]}
+                eventHandlers={{click:()=>{
+                  inputIntoGraph(junctionObj)
+                }}} 
+                >
                     <Popup>
                       <div>
                         <h2>Name:{junctionObj.junctionName}</h2>
@@ -148,6 +156,21 @@ const MapComponent = ({ pipeJuctionArr ,anomalityDataArr,inputIntoGraph,markerJu
                       <div>
                         <p>Occurence Time:Currently</p>
                       </div>
+                      </Popup>
+                    </Marker>
+                )
+              })
+            }
+            {
+              markerChildNodeArr.length!=0 && markerChildNodeArr.map((childNode)=>{
+                return(
+                  <Marker icon={childNodeIcon} position={[childNode.coordinates[0],childNode.coordinates[1]]}
+                  eventHandlers={{click:()=>{
+                    inputIntoGraph(childNode.node_name)
+                  }}}
+                  >
+                    <Popup>
+                      <h2>Name: {childNode.node_name}</h2>
                       </Popup>
                     </Marker>
                 )

@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 const pipeFlowSchema = new mongoose.Schema({
-    junctionId: {
-        type:mongoose.Schema.Types.ObjectId,
+    node_name: {
+        type:String,
         required: true
     },
-    flowrate:{
+    flow_rate:{
         type:Number,
         required:true
     },
-    checkEpoch:{
+    timestamp:{
         type:Date,
         default:new Date()
     }

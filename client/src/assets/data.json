@@ -1,0 +1,190 @@
+[
+    {
+        "node_name": "hostel_O",
+        "coordinates": [
+            30.351867523806593,
+            76.3623328149612
+        ],
+        "junction_name": "junction_1",
+        "selected": false
+    },
+    {
+        "node_name": "hostel_D",
+        "coordinates": [
+            30.350973911948895,
+            76.36021393967916
+        ],
+        "junction_name": "junction_1",
+        "selected": false
+    },
+    {
+        "node_name": "hostel_C",
+        "coordinates": [
+            30.35092350283171,
+            76.3612547906949
+        ],
+        "junction_name": "junction_1",
+        "selected": false
+    },
+    {
+        "node_name": "hostel_B",
+        "coordinates": [
+            30.35118929606617,
+            76.36324090436781
+        ],
+        "junction_name": "junction_1",
+        "selected": false
+    },
+    {
+        "node_name": "hostel_A",
+        "coordinates": [
+            30.35138176657837,
+            76.36453665767314
+        ],
+        "junction_name": "junction_3",
+        "selected": false
+    },
+    {
+        "node_name": "hostel_J",
+        "coordinates": [
+            30.352886865382704,
+            76.36330131144987
+        ],
+        "junction_name": "junction_3",
+        "selected": false
+    },
+    {
+        "node_name": "hostel_H",
+        "coordinates": [
+            30.353083051075174,
+            76.36496222009096
+        ],
+        "junction_name": "junction_3",
+        "selected": false
+    },
+    {
+        "node_name": "hostel_Q",
+        "coordinates": [
+            30.35197677651367,
+            76.36765882847124
+        ],
+        "junction_name": "junction_3",
+        "selected": false
+    },
+    {
+        "node_name": "hostel_K",
+        "coordinates": [
+            30.35730614117915,
+            76.36352323621907
+        ],
+        "junction_name": "junction_4",
+        "selected": false
+    },
+    {
+        "node_name": "hostel_I",
+        "coordinates": [
+            30.35504277648549,
+            76.36767812035015
+        ],
+        "junction_name": "junction_5",
+        "selected": false
+    },
+    {
+        "node_name": "hostel_M",
+        "coordinates": [
+            30.353134178656916,
+            76.36066472258837
+        ],
+        "junction_name": "junction_1",
+        "selected": false
+    },
+    {
+        "node_name": "hostel_PG",
+        "coordinates": [
+            30.35197989124751,
+            76.3666492398353
+        ],
+        "junction_name": "junction_3",
+        "selected": false
+    },
+    {
+        "node_name": "library",
+        "coordinates": [
+            30.3543545823082,
+            76.36958924718371
+        ],
+        "junction_name": "junction_5",
+        "selected": false
+    },
+    {
+        "node_name": "pool",
+        "coordinates": [
+            30.354402676757047,
+            76.36615459411051
+        ],
+        "junction_name": "junction_4",
+        "selected": false
+    },
+    {
+        "node_name": "cos_complex",
+        "coordinates": [
+            30.35435229080191,
+            76.36239996180112
+        ],
+        "junction_name": "junction_2",
+        "selected": false
+    },
+    {
+        "node_name": "synthetic_running_track",
+        "coordinates": [
+            30.35448455038261,
+            76.36168586050812
+        ],
+        "selected": false
+    },
+    {
+        "node_name": "admin_block",
+        "coordinates": [
+            30.35331165781154,
+            76.37117673725497
+        ],
+        "junction_name": "junction_6",
+        "selected": false
+    },
+    {
+        "node_name": "D_block",
+        "coordinates": [
+            30.35386891518143,
+            76.37088043884597
+        ],
+        "junction_name": "junction_6",
+        "selected": false
+    },
+    {
+        "node_name": "F_block",
+        "coordinates": [
+            30.354196712167006,
+            76.37217959338412
+        ],
+        "junction_name": "junction_6",
+        "selected": false
+    },
+    {
+        "node_name": "E_block",
+        "coordinates": [
+            30.35348211335929,
+            76.37226316473024
+        ],
+        "junction_name": "junction_6",
+        "selected": false
+    },
+    {
+        "node_name": "G_block",
+        "coordinates": [
+            30.353576978097472,
+            76.36952646563789
+        ],
+        "junction_name": "junction_6",
+        "selected": false
+    }
+]

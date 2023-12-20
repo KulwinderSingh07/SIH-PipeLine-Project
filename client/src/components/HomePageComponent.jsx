@@ -9,6 +9,11 @@ import AreaSearchSelector from './areaSearchSelector'
 import SelectedAreaStateToggle from './selectedAreaStateTogglers'
 import {Areas}  from '../data/dummyAreaArray'
 import LocationDrop from './locationreal'
+import AnoamlitySelector from './anomality'
+import anomalityIcon from "../assets/anomalityicon.png"
+import JuncitonIcon from "../assets/junction.png"
+import childNodeIcon from "../assets/childNode.png"
+import TitlebarBelowMasonryImageList from './showVisual'
 import Header from './header'
 
 
@@ -16,11 +21,14 @@ import Header from './header'
 
 const HomePageComponent = () => {
     const [pipeJuctionArr, setpipeJuctionArr] = useState([])
-    const [graphData, setGraphData] = useState([])
     const [selectedArea, setSelectedArea] = useState(Areas)
     const [anomalityDataArr, setAnomalityDataArr] = useState([])
-    const [graphDataToDisplay, setGraphDataToDisplay] = useState([])
+    const [graphDataToDisplay, setGraphDataToDisplay] = useState({})
     const [markerJunctionsArr, setMarkerJunctionsArr] = useState([])
+    const [markerChildNodeArr, setMarkerChildNodeArr] = useState([])
+    const [centerMap, setCenterMap] = useState([30.3564, 76.3647])
+
+    const date=Date.now()
 
 
     // fetchind data to display at the map
@@ -54,6 +62,10 @@ const HomePageComponent = () => {
       const fetchedAllJunctions=await axios.get("http://localhost:4000/junction/getAllJunctions")
       console.log(fetchedAllJunctions.data)
       setMarkerJunctionsArr(fetchedAllJunctions.data)
+
+      const allChildNodes=await axios.get("http://localhost:4000/childnode/getAllChildNodes")
+      console.log(allChildNodes.data)
+      setMarkerChildNodeArr(allChildNodes.data)
     }
 
     
@@ -94,23 +106,6 @@ const HomePageComponent = () => {
     setGraphDataToDisplay(newJunctionDataArr)
   }
 }
-
-    
-    const addDataToGraph=()=>{
-      const dataDemo={
-        label: 'Dataset 3',
-        data:[
-                           {x:'April',y:1000},
-                           {x:'Hello',y:40},
-                           {x:'May',y:35},
-                        ],
-        borderColor: 'rgb(23, 152, 225)',
-        backgroundColor: 'rgba(13, 142, 225, 0.5)',
-      }
-      setGraphData(dataDemo)
-    }
-
-    let date = Date();
   
     useEffect(()=>{ 
       console.log(Areas)
@@ -142,7 +137,8 @@ const HomePageComponent = () => {
         <div className='homePageDivBottom'>
             <div className='homePageDivBottomLeftUnit'>
             <div className='homePageDivBottomLeftUpperUnit'>
-                <LineChartComponent graphDataToDisplay={graphDataToDisplay}/>
+                {/* <LineChartComponent graphDataToDisplay={graphDataToDisplay}/> */}
+                <AnoamlitySelector anomalityDataArr={anomalityDataArr} setCenterMap={setCenterMap}/>
             </div>
             <div className='homePageDivBottomLeftLowerUnit'>
             {/* <LocationDropSelector fetchMapData={fetchMapData} /> */}
@@ -150,9 +146,23 @@ const HomePageComponent = () => {
             </div>
             </div>
             <div className='homePageDivBottomRightUnit'>
+              <div className='IconWrapper'>
                 <h3 className='mapHeading'>Area Overview</h3>
+                {/* <TitlebarBelowMasonryImageList/> */}
+                <div className='IconList'>
+                <img className="viewIcon" src={JuncitonIcon}></img><span>Junction</span>
+                <img className="viewIcon" src={childNodeIcon}></img><span>Child Nodes</span>
+                <img className="viewIcon" src={anomalityIcon}></img><span>Anomality</span>
+                <div className='pipecontainer'>
+                <div className="pipeRed"></div><span>Junction Connection Pipe</span>
+                <div className="pipeBlue"></div><span>Node Connection Pipe</span>
+                </div>
+                </div>
+              </div>
                 <MapComponent pipeJuctionArr={pipeJuctionArr} anomalityDataArr={anomalityDataArr} inputIntoGraph={inputIntoGraph}
                 markerJunctionsArr={markerJunctionsArr}
+                markerChildNodeArr={markerChildNodeArr}
+                centerMap={centerMap}
                 />
             </div>
         </div>

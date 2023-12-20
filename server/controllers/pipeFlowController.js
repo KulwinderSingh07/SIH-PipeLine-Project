@@ -4,24 +4,30 @@ const pipelineFlowModel = require("../model/pipelineFlowModel")
 const fetchPipeFlow=async(req,res)=>{
     try{
         console.log(req.body)
-        const JunctionObj=await locationModel.findOne({name:req.body.junctionName})
-        console.log(JunctionObj)
-        const PipeFlowArr=await pipelineFlowModel.find({junctionId:JunctionObj._id})
-        const dataPropForLineChart={
-            label: req.body.junctionName,
-            data:[],
-            borderColor: 'rgb(23, 152, 225)',
-            backgroundColor: 'rgba(13, 142, 225, 0.5)',
-          }
-         const newDataset=PipeFlowArr.map((instanceFlow)=>{
-            return {x:instanceFlow.checkEpoch,y:instanceFlow.flowrate}
-          })
-          dataPropForLineChart.data=newDataset
-          console.log(dataPropForLineChart)
-        res.json({
-            flowdata:dataPropForLineChart
-        })
-       
+        // const pipeflow=await pipelineFlowModel.find()
+        // console.log(pipeflow)
+        const pipeFlowArr=await pipelineFlowModel.find({node_name:req.body.junctionName})
+        let newArr=[]
+        let currdate=new Date().toDateString()
+        // let count=0;
+        for(let index in pipeFlowArr){
+            // if(count==99){
+            //     break;
+            // }
+            // count++;
+            console.log(pipeFlowArr[index])
+                let obj={x:pipeFlowArr[index].timestamp,y:pipeFlowArr[index].flow_rate}
+                newArr.push(obj)
+        }
+      return  res.json({
+        datasets:[{
+        label: req.body.junctionName,
+        data:newArr,
+        }],
+        borderColor: 'rgb(23, 152, 225)',
+        backgroundColor: 'rgba(13, 142, 225, 0.5)',
+    }
+        )
     }catch(err){
         res.json({
             message:err.message

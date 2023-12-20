@@ -160,15 +160,17 @@
 
 
 .IconWrapper{
+    /* border-style: solid; */
+    width: 100%;
     display: flex;
     flex-direction: row;
     /* width: 100%; */
     align-items: center;
     /* flex-wrap: ; */
-    justify-content: space-between;
+    justify-content: center;
 }
 .viewIcon{
-    width: 4%;
+    height: 20px;
 }
 .pipeRed{
     width: 8%;
@@ -182,6 +184,10 @@
 }
 .pipecontainer{
     display: flex;
+    /* border-style: solid; */
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
 /* .pipecontainer{
     display: flex;
@@ -197,3 +203,32 @@
     display: flex;
     flex-direction: row;
 } */
+
+.IconList{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    /* border-style: solid; */
+}
+
+.wrapper1{
+    /* border-style: solid; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    padding: 10px;
+}
+
+.mapHeading{
+    padding-right:45px;
+}
+
+.reserviorSetup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

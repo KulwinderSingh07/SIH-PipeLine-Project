@@ -35,3 +35,17 @@
     cursor: pointer;
     transform: scale(1.1);
 }
+
+.verifySensorsDiv{
+    border:solid;
+    borderWidth:1px;
+    borderRadius:30px;
+    padding:5px;
+    display:flex;
+    justifyContent:center;
+    transition: all 0.2s ease-in-out;
+}
+.verifySensorsDiv:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}

@@ -1,4 +1,4 @@
-import AreaListPaginationComponent from "./paginationComponet";
+import AreaListPaginationComponent from "./PaginationComponet";
 import "../CSS/paginationPageComponent.css"
 
 const AreaDashBoardPage = () => {

@@ -33,6 +33,21 @@ const DataCard = ({selectedArea,selector}) => {
       return "Junction Graphs"
     }
   }
+  // const Logo=(selector)=>{
+  //   if(selector==1){
+  //     return "Total No of Issues Resolved"
+  //   }
+  //   if(selector==2){
+  //     return "Issues No of Issues Pending"
+  //   }
+  //   if(selector==3){
+  //     return "Water Quality Index for Junction"
+  //   }
+  //   if(selector==4){
+  //     return "Junction Title"
+  //   }
+  // }
+  
   useEffect(()=>{
     console.log(selectedArea)
     let index=selectedArea.map(area=>area.selected).indexOf(true)

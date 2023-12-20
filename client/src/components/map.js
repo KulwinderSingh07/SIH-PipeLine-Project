@@ -91,7 +91,7 @@ const MapComponent = ({ pipeJuctionArr ,anomalityDataArr,inputIntoGraph,markerJu
                     opacity={1}
                     sticky
                   >
-                    sticky Tooltip for Rectangle
+                    Pipe
                   </Tooltip>
 
                   <Popup>
